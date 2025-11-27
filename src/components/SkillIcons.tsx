@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const DjangoIcon = () => (
   <svg viewBox="0 0 128 128" className="w-6 h-6" fill="currentColor" aria-hidden>
     <path d="M65.6 0h21.5v96.3c-11.4 2.2-19.9 3.1-29 3.1-27.2 0-41.5-12.3-41.5-35.9 0-22.8 15.4-37.4 39.2-37.4 3.2 0 5.6.2 9.8 1v73.7c4.3.5 8 .3 12 .1V0z" />
