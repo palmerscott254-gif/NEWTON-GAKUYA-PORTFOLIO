@@ -1,15 +1,16 @@
 {
   "name": "newton-gakuya-portfolio",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --max-warnings=0",
     "format": "prettier --write .",
-    "test": "echo \"No tests yet\""
+    "type-check": "tsc --noEmit",
+    "analyze": "vite build --mode analyze"
   },
   "dependencies": {
     "framer-motion": "^11.2.6",
@@ -18,19 +19,22 @@
     "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
-    "@vitejs/plugin-react-swc": "^3.6.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react-swc": "^3.7.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.12.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.37.1",
-    "postcss": "^8.4.33",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "postcss": "^8.4.49",
     "prettier": "^3.3.3",
+    "rollup-plugin-visualizer": "^5.12.0",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3",
-    "vite": "^5.0.8",
-    "vite-imagetools": "^7.0.3",
-    "vite-plugin-pwa": "^0.20.5"
+    "vite": "^5.4.11",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-pwa": "^0.20.5",
+    "workbox-window": "^7.3.0"
   }
 }

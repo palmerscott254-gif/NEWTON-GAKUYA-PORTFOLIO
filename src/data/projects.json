@@ -1,12 +1,32 @@
 [
   {
-    "title": "Project A",
-    "description": "Django REST + React SPA.",
-    "href": "#"
+    "id": "cpa-academy",
+    "title": "CPA Academy",
+    "description": "Professional educational website for CPA learners featuring comprehensive study resources, course catalogs, enrollment systems, and student progress tracking.",
+    "longDescription": "A comprehensive learning management system built with modern web technologies. Features include course management, student enrollment, progress tracking, and interactive learning materials.",
+    "href": "https://github.com/palmerscott254-gif",
+    "tags": ["HTML", "CSS", "JavaScript", "Responsive", "Education"],
+    "icon": "🎓",
+    "featured": true
   },
   {
-    "title": "Project B",
-    "description": "Python data tool.",
-    "href": "#"
+    "id": "pie-global-furnitures",
+    "title": "Pie Global Furnitures",
+    "description": "Modern e-commerce website for furniture brand showcasing product collections, interactive catalogs, customer testimonials, and seamless contact integration.",
+    "longDescription": "Full-featured e-commerce platform with product catalog, shopping cart, customer reviews, and integrated payment processing. Built with focus on user experience and conversion optimization.",
+    "href": "https://github.com/palmerscott254-gif",
+    "tags": ["HTML", "CSS", "JavaScript", "E-commerce", "UI/UX"],
+    "icon": "🛋️",
+    "featured": true
+  },
+  {
+    "id": "professional-web-designs",
+    "title": "Professional Web Designs",
+    "description": "Collection of modern, responsive frontend designs featuring advanced UI/UX elements, smooth animations, and accessibility-first approach.",
+    "longDescription": "A showcase of cutting-edge web design patterns and techniques. Demonstrates mastery of modern CSS, animations, and responsive design principles.",
+    "href": "https://github.com/palmerscott254-gif",
+    "tags": ["React", "CSS3", "Animations", "UI/UX", "Accessibility"],
+    "icon": "🎨",
+    "featured": true
   }
 ]

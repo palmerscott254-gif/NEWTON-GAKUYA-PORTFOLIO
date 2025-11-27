@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#6366f1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="author" content="Newton Gakuya" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="profilep.jpg" />
+    <title>Newton Gakuya — Professional Portfolio</title>
+    <meta name="description" content="Newton Gakuya — Django, Python, and React developer. Professional portfolio with projects, skills, and business fundamentals." />
+    <meta name="robots" content="index, follow" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#818cf8" media="(prefers-color-scheme: light)">
+  <meta name="color-scheme" content="dark light">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Newton Gakuya">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://newtongakuya.netlify.app/">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="profilep.jpg">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="NG Portfolio">
+
+  <!-- Preconnect to external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://formspree.io">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/enhancements.css">
+
+  <!-- SEO & Social Sharing -->
+  <title>Newton Gakuya — Professional Portfolio | Django & React Developer | Commerce Student</title>
+  <meta name="description" content="Newton Gakuya — Bachelor of Commerce student at DKUT specializing in Django, Python, and React development. Professional portfolio showcasing full-stack web projects, business acumen, and creative works.">
+  <meta name="keywords" content="Newton Gakuya, portfolio, Django developer, React developer, Python programmer, web developer, DKUT, commerce student, full-stack developer, Kenya developer, financial analysis, accounting">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://newtongakuya.netlify.app/">
+  <meta property="og:title" content="Newton Gakuya | Professional Web Developer Portfolio">
+  <meta property="og:description" content="Commerce student, Django & React developer, and creative professional. Explore my projects, skills, and journey in web development and business.">
+  <meta property="og:image" content="https://newtongakuya.netlify.app/profilep.jpg">
+  <meta property="og:site_name" content="Newton Gakuya Portfolio">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://newtongakuya.netlify.app/">
+  <meta name="twitter:title" content="Newton Gakuya | Professional Web Developer Portfolio">
+  <meta name="twitter:description" content="Commerce student, Django & React developer, and creative professional. Explore my projects and skills.">
+  <meta name="twitter:image" content="https://newtongakuya.netlify.app/profilep.jpg">
+  <meta name="twitter:site" content="@newtongakuya">
+  <meta name="twitter:creator" content="@newtongakuya">
+  
+  <!-- Additional SEO -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="author" href="https://github.com/palmerscott254-gif">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Newton Gakuya",
+    "url": "https://newtongakuya.netlify.app/",
+    "image": "https://newtongakuya.netlify.app/profilep.jpg",
+    "description": "Bachelor of Commerce student at Dedan Kimathi University, Full-Stack Web Developer specializing in Django, Python, and React.",
+    "jobTitle": "Full-Stack Web Developer & Commerce Student",
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Dedan Kimathi University of Technology"
+    },
+    "knowsAbout": ["Django", "Python", "React", "Web Development", "HTML", "CSS", "JavaScript", "Financial Analysis", "Accounting", "Business Management"],
+    "sameAs": [
+      "https://github.com/palmerscott254-gif",
+      "https://www.linkedin.com/in/gakuya-227148385",
+      "https://wa.me/254114110791"
+    ],
+    "email": "newton.gakuya24@students.dkut.ac.ke",
+    "telephone": "+254706271001"
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="sr-only skip-link">Skip to main content</a>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Page scroll progress"></div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top" title="Back to top">
+    <span aria-hidden="true">↑</span>
+  </button>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/254114110791" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Chat on WhatsApp" aria-label="Contact via WhatsApp">
+    <svg viewBox="0 0 32 32" fill="currentColor" width="28" height="28" aria-hidden="true">
+      <path d="M16.002 0C7.165 0 0 7.163 0 16c0 2.825.737 5.477 2.027 7.778L.014 31.386l7.86-2.05A15.916 15.916 0 0016.002 32C24.838 32 32 24.838 32 16S24.838 0 16.002 0zm9.391 22.644c-.387 1.09-2.277 2.003-3.136 2.137-.858.135-1.582.614-5.328-.833-4.513-1.745-7.415-6.274-7.64-6.561-.224-.287-1.843-2.446-1.843-4.663 0-2.218 1.166-3.307 1.579-3.757.413-.45.902-.563 1.203-.563.3 0 .602.003.862.016.276.014.645-.105.99.755.351.875 1.203 2.93 1.309 3.143.106.212.177.46.036.746-.142.287-.212.467-.424.718-.212.25-.446.558-.637.75-.212.212-.433.442-.186.868.246.425 1.097 1.808 2.353 2.927 1.617 1.44 2.978 1.888 3.4 2.098.424.212.671.177.918-.106.246-.287 1.06-1.235 1.342-1.662.287-.424.572-.354.962-.212.39.142 2.474 1.166 2.898 1.378.424.212.707.318.81.494.106.177.106 1.02-.28 2.11z"/>
+    </svg>
+  </a>
+
+  <!-- Navigation -->
+  <nav aria-label="Main navigation" id="navbar">
+    <a href="#home" class="nav-logo" aria-label="Newton Gakuya - Home">NG</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#poetry" class="nav-link">Poetry</a>
+      <a href="#hobbies" class="nav-link">Hobbies</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="home" role="banner">
+    <h1>Newton Gakuya</h1>
+    <p class="typing-effect" id="typingText">Bachelor of Commerce | Django & React Developer</p>
+    <img src="profilep.jpg" alt="Newton Gakuya - Bachelor of Commerce student and Full-Stack Web Developer" class="profile-pic" width="220" height="220" loading="eager">
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-primary">Get In Touch</a>
+      <a href="#projects" class="btn btn-outline">View Projects</a>
+    </div>
+    <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" role="button" tabindex="0" aria-label="Scroll to about section"></div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    
+    <!-- About Section -->
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p>
+        I'm a Bachelor of Commerce student at Dedan Kimathi University of Technology, 
+        where I am building a strong foundation in business, finance, and management. 
+        My studies have equipped me with analytical, problem-solving, and teamwork skills that I apply in both academic projects and practical experiences.
+      </p>
+      <p>
+        I am particularly interested in accounting and finance, and passionate about leveraging my knowledge to create innovative solutions and contribute positively to organizations. 
+        My unique blend of business acumen and technical expertise allows me to approach problems from multiple angles.
+      </p>
+      <p>
+        Outside academics, I specialize in web development with a focus on Django, Python, and React. 
+        I build full-stack applications and websites that combine functionality with elegant design. 
+        I'm also a creative poet who loves expressing emotions through words, blending my analytical and creative sides.
+      </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills & Expertise</h2>
+      <div class="skills-container">
+        
+        <!-- Core Technologies -->
+        <div class="skill-category">
+          <h3>💻 Core Technologies</h3>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Django</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-progress" data-progress="90"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Python</span>
+              <span>88%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-progress" data-progress="88"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>React</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-progress" data-progress="85"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>HTML & CSS</span>
+              <span>92%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-progress" data-progress="92"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>JavaScript (Basic)</span>
+              <span>60%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-progress" data-progress="60"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business & Finance -->
+        <div class="skill-category">
+          <h3>💼 Business & Finance</h3>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Financial Analysis</span>
+              <span>65%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-progress" data-progress="65"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Accounting</span>
+              <span>70%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-progress" data-progress="70"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Financial Management</span>
+              <span>65%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-progress" data-progress="65"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Business Advising</span>
+              <span>60%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-progress" data-progress="60"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skill-category">
+          <h3>🎯 Professional Skills</h3>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Leadership</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-progress" data-progress="90"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Teamwork</span>
+              <span>92%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-progress" data-progress="92"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Strategic Thinking</span>
+              <span>88%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-progress" data-progress="88"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Communication</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-progress" data-progress="85"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="stats-section" aria-label="Portfolio statistics">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number" data-target="15" aria-label="15 projects completed">0</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="2" aria-label="2 years of experience">0</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="10" aria-label="10 technologies mastered">0</span>
+          <span class="stat-label">Technologies</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="3" aria-label="3 creative publications">0</span>
+          <span class="stat-label">Publications</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Featured Projects</h2>
+      <div class="projects-grid">
+        
+        <article class="project-card" tabindex="0" aria-labelledby="project-1-title">
+          <div class="project-icon" aria-hidden="true">🎓</div>
+          <div class="project-content">
+            <h3 class="project-title" id="project-1-title">CPA Academy</h3>
+            <p class="project-description">Professional educational website for CPA learners featuring comprehensive study resources, course catalogs, enrollment systems, and student progress tracking.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Responsive</span>
+            </div>
+            <p style="margin-top:15px"><a href="https://github.com/palmerscott254-gif" target="_blank" rel="noopener noreferrer" class="project-link">View the Project →</a></p>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="0" aria-labelledby="project-2-title">
+          <div class="project-icon" aria-hidden="true">🛋️</div>
+          <div class="project-content">
+            <h3 class="project-title" id="project-2-title">Pie Global Furnitures</h3>
+            <p class="project-description">Modern e-commerce website for furniture brand showcasing product collections, interactive catalogs, customer testimonials, and seamless contact integration.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">E-commerce</span>
+            </div>
+            <p style="margin-top:15px"><a href="https://github.com/palmerscott254-gif" target="_blank" rel="noopener noreferrer" class="project-link">View the Project →</a></p>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="0" aria-labelledby="project-3-title">
+          <div class="project-icon" aria-hidden="true">🎨</div>
+          <div class="project-content">
+            <h3 class="project-title" id="project-3-title">Professional Web Designs</h3>
+            <p class="project-description">Collection of modern, responsive frontend designs featuring advanced UI/UX elements, smooth animations, and accessibility-first approach.</p>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Animations</span>
+              <span class="tag">UI/UX</span>
+            </div>
+            <p style="margin-top:15px"><a href="https://github.com/palmerscott254-gif" target="_blank" rel="noopener noreferrer" class="project-link">View the Project →</a></p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Poetry Section -->
+    <section id="poetry" aria-labelledby="poetry-heading">
+      <h2 id="poetry-heading">Poetry & Creative Writing</h2>
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <h3 style="color: var(--primary); margin-bottom: 10px;">"One Last Time"</h3>
+            <p style="font-style: italic; color: var(--text-light);">
+              A heartfelt exploration of closure and the bittersweet nature of final moments, 
+              capturing the essence of letting go with grace and understanding.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <h3 style="color: var(--primary); margin-bottom: 10px;">"Love Story"</h3>
+            <p style="font-style: italic; color: var(--text-light);">
+              An intimate narrative weaving through the complexities of human connection, 
+              celebrating the journey of affection in all its beautiful imperfections.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <h3 style="color: var(--primary); margin-bottom: 10px;">"The Mask I Wear"</h3>
+            <p style="font-style: italic; color: var(--text-light);">
+              A powerful reflection on authenticity and the personas we adopt, 
+              delving deep into the struggle between societal expectations and true self.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section id="hobbies" aria-labelledby="hobbies-heading">
+      <h2 id="hobbies-heading">Hobbies & Interests</h2>
+      <div class="hobbies-grid">
+        
+        <div class="hobby-card" tabindex="0">
+          <div class="hobby-icon" aria-hidden="true">🏉</div>
+          <h3 class="hobby-title">Rugby</h3>
+          <p class="hobby-description">Building teamwork, discipline, and physical resilience through competitive sports</p>
+        </div>
+
+        <div class="hobby-card" tabindex="0">
+          <div class="hobby-icon" aria-hidden="true">♟️</div>
+          <h3 class="hobby-title">Chess</h3>
+          <p class="hobby-description">Sharpening strategic thinking, pattern recognition, and decision-making skills</p>
+        </div>
+
+        <div class="hobby-card" tabindex="0">
+          <div class="hobby-icon" aria-hidden="true">🎮</div>
+          <h3 class="hobby-title">Gaming (PES)</h3>
+          <p class="hobby-description">Enjoying competitive gaming for entertainment, relaxation, and stress relief</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Get In Touch</h2>
+      <div class="contact-container">
+        
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">📧</div>
+            <div class="contact-details">
+              <h4>Email</h4>
+              <p><a href="mailto:newton.gakuya24@students.dkut.ac.ke">newton.gakuya24@students.dkut.ac.ke</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">🐙</div>
+            <div class="contact-details">
+              <h4>GitHub</h4>
+              <p><a href="https://github.com/palmerscott254-gif" target="_blank" rel="noopener noreferrer">palmerscott254-gif</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">💼</div>
+            <div class="contact-details">
+              <h4>LinkedIn</h4>
+              <p><a href="https://www.linkedin.com/in/gakuya-227148385" target="_blank" rel="noopener noreferrer">Connect with me</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">💬</div>
+            <div class="contact-details">
+              <h4>Phone</h4>
+              <p><a href="tel:+254706271001">+254 706 271001</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">🟢</div>
+            <div class="contact-details">
+              <h4>WhatsApp</h4>
+              <p><a href="https://wa.me/254114110791" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <form id="contactForm" action="https://formspree.io/f/xjkeqeed" method="POST">
+            <label for="name" class="sr-only">Your Name</label>
+            <input id="name" type="text" name="name" placeholder="Your Name" required aria-required="true">
+
+            <label for="email" class="sr-only">Your Email</label>
+            <input id="email" type="email" name="email" placeholder="Your Email" required aria-required="true">
+
+            <label for="message" class="sr-only">Your Message</label>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required aria-required="true"></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; text-align: left;">
+        <div>
+          <h3 style="color: var(--primary); margin-bottom: 20px; font-size: 1.3rem;">Newton Gakuya</h3>
+          <p style="color: var(--text-muted); line-height: 1.8; font-size: 0.95rem;">
+            Bachelor of Commerce student, Django & React developer, and creative professional. 
+            Building innovative solutions and creating meaningful digital experiences.
+          </p>
+        </div>
+        
+        <div>
+          <h3 style="color: var(--primary); margin-bottom: 20px; font-size: 1.1rem;">Quick Links</h3>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <a href="#about" style="color: var(--text-muted); font-size: 0.95rem;">About</a>
+            <a href="#skills" style="color: var(--text-muted); font-size: 0.95rem;">Skills</a>
+            <a href="#projects" style="color: var(--text-muted); font-size: 0.95rem;">Projects</a>
+            <a href="#contact" style="color: var(--text-muted); font-size: 0.95rem;">Contact</a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 style="color: var(--primary); margin-bottom: 20px; font-size: 1.1rem;">Contact Info</h3>
+          <div style="display: flex; flex-direction: column; gap: 12px; color: var(--text-muted); font-size: 0.95rem;">
+            <div>📧 newton.gakuya24@students.dkut.ac.ke</div>
+            <div>📱 +254 706 271001</div>
+            <div>🟢 <a href="https://wa.me/254114110791" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted);">WhatsApp</a></div>
+            <div>📍 Dedan Kimathi University, Kenya</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid var(--border); padding-top: 30px;">
+        <div class="social-links">
+          <a href="https://github.com/palmerscott254-gif" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub" aria-label="Visit my GitHub profile">
+            <span aria-hidden="true">🐙</span>
+          </a>
+          <a href="mailto:newton.gakuya24@students.dkut.ac.ke" class="social-icon" title="Email" aria-label="Send me an email">
+            <span aria-hidden="true">📧</span>
+          </a>
+          <a href="https://www.linkedin.com/in/gakuya-227148385" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn" aria-label="Connect on LinkedIn">
+            <span aria-hidden="true">💼</span>
+          </a>
+          <a href="tel:+254706271001" class="social-icon" title="Phone" aria-label="Call me">
+            <span aria-hidden="true">📱</span>
+          </a>
+          <a href="https://wa.me/254114110791" target="_blank" rel="noopener noreferrer" class="social-icon" title="WhatsApp" aria-label="Chat on WhatsApp">
+            <span aria-hidden="true">🟢</span>
+          </a>
+        </div>
+        
+        <p style="margin-top: 20px;">© 2025 Newton Gakuya. All rights reserved.</p>
+        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 10px;">Crafted with passion | Designed for excellence</p>
+      </div>
+      
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="assets/js/main.js"></script>
+  
+  <!-- No JavaScript Fallback -->
+  <noscript>
+    <div style="position: fixed; top: 0; left: 0; right: 0; background: rgba(236, 72, 153, 0.95); color: white; padding: 20px; text-align: center; z-index: 10000; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+      <p style="margin: 0; font-size: 1.1rem;"><strong>⚠️ JavaScript is disabled</strong></p>
+      <p style="margin: 10px 0 0; font-size: 0.95rem;">For the best experience with animations and interactive features, please enable JavaScript in your browser.</p>
+    </div>
+  </noscript>
+
+</body>
+</html>
