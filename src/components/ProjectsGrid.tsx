@@ -85,7 +85,7 @@ const ProjectsGrid = memo(({ limit, featured = false }: ProjectsGridProps) => {
           variants={ANIMATION_VARIANTS.slideUp}
           className="text-3xl md:text-4xl font-bold"
         >
-          Featured Projects
+          {featured ? 'Featured Projects' : 'All Projects'}
         </motion.h2>
         
         <motion.div
