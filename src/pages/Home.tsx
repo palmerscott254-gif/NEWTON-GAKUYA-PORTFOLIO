@@ -10,12 +10,12 @@ export default function Home() {
       <section id="hero">
         <Hero />
       </section>
-      <section id="skills">
-        <Skills />
-      </section>
       {/* Inline sections for smooth homepage flow */}
       <section id="about">
         <About />
+      </section>
+      <section id="skills">
+        <Skills />
       </section>
       <section id="projects">
         <ProjectsGrid featured limit={6} />
