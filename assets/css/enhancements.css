@@ -1,0 +1,344 @@
+/* Additional Project-Specific Styles */
+
+/* Project Link Styling */
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--primary);
+  transition: all var(--transition-base);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.project-link:hover {
+  background: rgba(99, 102, 241, 0.15);
+  transform: translateX(4px);
+  color: var(--primary-light);
+}
+
+/* Skip Link Styling */
+.skip-link {
+  position: absolute !important;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 12px 20px;
+  z-index: 10000;
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-sm) 0;
+  font-weight: 600;
+  transition: top var(--transition-base);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Enhanced Focus States */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Improved Menu Toggle Animation */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Enhanced Card Interactions */
+.project-card:focus,
+.hobby-card:focus,
+.skill-category:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+/* Loading State */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: wait;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Improved Text Selection */
+::selection {
+  background: var(--primary);
+  color: white;
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: var(--primary);
+  color: white;
+  text-shadow: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 10px;
+  border: 2px solid rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+}
+
+/* Smooth Page Transitions */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Enhanced Button States */
+button:active,
+.btn:active {
+  transform: scale(0.98);
+}
+
+button:disabled,
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Improved Form Validation States */
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+input:valid:not(:placeholder-shown),
+textarea:valid:not(:placeholder-shown) {
+  border-color: var(--success);
+}
+
+/* Success Message */
+.form-success {
+  padding: 16px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-md);
+  color: var(--success);
+  text-align: center;
+  margin-top: 20px;
+  animation: slideInUp 0.5s ease;
+}
+
+/* Error Message */
+.form-error {
+  padding: 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-md);
+  color: #ef4444;
+  text-align: center;
+  margin-top: 20px;
+  animation: shake 0.5s ease;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+/* Dark Mode Media Query Support */
+@media (prefers-color-scheme: light) {
+  /* Light mode adjustments if needed in future */
+  :root {
+    /* Can add light mode variables here */
+  }
+}
+
+/* High Performance Animations */
+@media (prefers-reduced-motion: no-preference) {
+  .project-card,
+  .skill-category,
+  .hobby-card,
+  .timeline-item {
+    will-change: transform, opacity;
+  }
+}
+
+/* Container Queries Support (Progressive Enhancement) */
+@supports (container-type: inline-size) {
+  .skills-container,
+  .projects-grid,
+  .hobbies-grid {
+    container-type: inline-size;
+  }
+}
+
+/* Backdrop Filter Fallback */
+@supports not (backdrop-filter: blur(20px)) {
+  nav,
+  .scroll-top,
+  .whatsapp-float,
+  #about,
+  #contact,
+  .skill-category,
+  .project-card {
+    background: var(--card-bg);
+    opacity: 0.98;
+  }
+}
+
+/* Grid Auto-fit Enhancement */
+@supports (grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))) {
+  .skills-container,
+  .projects-grid,
+  .hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+/* Aspect Ratio Support */
+@supports (aspect-ratio: 1/1) {
+  .profile-pic {
+    aspect-ratio: 1/1;
+    width: 220px;
+    height: auto;
+  }
+}
+
+/* Color Scheme Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* Forced Colors Mode */
+@media (forced-colors: active) {
+  * {
+    forced-color-adjust: auto;
+  }
+}
+
+/* Print Optimizations */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+}
+
+/* Utility Classes */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-glow {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+}
+
+/* Performance Optimization Classes */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
