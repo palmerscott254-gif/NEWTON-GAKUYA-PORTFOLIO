@@ -1,0 +1,28 @@
+{
+  "name": "Newton Gakuya Portfolio",
+  "short_name": "NG Portfolio",
+  "description": "Professional portfolio of Newton Gakuya: Commerce student, programmer, web developer, poet.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f0c29",
+  "theme_color": "#0f0c29",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "profilep.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "profilep.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "education", "technology"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

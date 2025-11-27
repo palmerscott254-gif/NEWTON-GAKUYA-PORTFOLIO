@@ -1,0 +1,33 @@
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary Files
+*.log
+*.tmp
+*.bak
+
+# Node modules (if you add npm later)
+node_modules/
+package-lock.json
+
+# Build outputs (if you add build tools later)
+dist/
+build/
+.cache/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Netlify
+.netlify/
