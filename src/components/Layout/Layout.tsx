@@ -1,5 +1,6 @@
 import Header from './Header';
 import Footer from './Footer';
+import WhatsAppButton from '@components/WhatsAppButton';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,6 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import type { ContactInfo, SocialLink } from '../types/index';
+import { GitHubIcon, LinkedInIcon, EmailIcon, WhatsAppIcon } from '@components/Icons';
 
 export const SITE_CONFIG = {
   name: 'Newton Gakuya',
@@ -23,25 +24,25 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     name: 'GitHub',
     url: CONTACT_INFO.github,
-    icon: '🐙',
+    icon: <GitHubIcon />,
     ariaLabel: 'Visit my GitHub profile'
   },
   {
     name: 'LinkedIn',
     url: CONTACT_INFO.linkedin,
-    icon: '💼',
+    icon: <LinkedInIcon />,
     ariaLabel: 'Connect on LinkedIn'
   },
   {
     name: 'Email',
     url: `mailto:${CONTACT_INFO.email}`,
-    icon: '📧',
+    icon: <EmailIcon />,
     ariaLabel: 'Send me an email'
   },
   {
     name: 'WhatsApp',
     url: `https://wa.me/${CONTACT_INFO.whatsapp.replace(/\+/g, '')}`,
-    icon: '💬',
+    icon: <WhatsAppIcon />,
     ariaLabel: 'Chat on WhatsApp'
   }
 ];

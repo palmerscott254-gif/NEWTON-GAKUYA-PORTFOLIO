@@ -24,7 +24,7 @@ export interface Skill {
 export interface SocialLink {
   name: string;
   url: string;
-  icon: string;
+  icon: React.ReactNode;
   ariaLabel: string;
 }
 
