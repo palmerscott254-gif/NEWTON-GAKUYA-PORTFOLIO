@@ -7,12 +7,22 @@ import Contact from './Contact';
 export default function Home() {
   return (
     <>
-      <Hero />
-      <Skills />
+      <section id="hero">
+        <Hero />
+      </section>
+      <section id="skills">
+        <Skills />
+      </section>
       {/* Inline sections for smooth homepage flow */}
-      <About />
-      <ProjectsGrid featured limit={6} />
-      <Contact />
+      <section id="about">
+        <About />
+      </section>
+      <section id="projects">
+        <ProjectsGrid featured limit={6} />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
     </>
   );
 }
