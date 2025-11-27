@@ -26,8 +26,6 @@ html, body, #root {
 
 body {
   @apply bg-slate-900 text-slate-100 antialiased;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-  background-attachment: fixed;
 }
 
 /* Utility Classes */
@@ -122,11 +120,7 @@ body {
   @apply bg-gradient-to-r from-primary-400 via-primary-500 to-secondary bg-clip-text text-transparent;
 }
 
-/* Hero Enhancements */
-.hero-gradient {
-  background: linear-gradient(115deg, rgba(15,23,42,1) 0%, rgba(30,41,59,0.95) 40%, rgba(51,65,85,0.9) 70%);
-}
-
+/* Profile Frame */
 .profile-frame {
   position: relative;
   display: inline-flex;
@@ -143,5 +137,3 @@ body {
 }
 
 .animate-gradientShift { animation: gradientShift 14s linear infinite; }
-.animate-pulse-slow { animation: pulse 6s ease-in-out infinite; }
-.animate-pulse-slower { animation: pulse 10s ease-in-out infinite; }

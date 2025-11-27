@@ -1,0 +1,337 @@
+/* Dark Forest Background Animation System
+   Optimized for performance with GPU-accelerated transforms
+   All animations use transform and opacity for 60fps smoothness */
+
+.dark-forest-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Photo Layer - External forest image */
+.forest-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://i.pinimg.com/736x/9a/69/3a/9a693aba7f1d1fb2f8d13a74d4e2b67a.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: saturate(0.85) brightness(0.45) contrast(1.1);
+  transform: translateZ(0) scale(1.03);
+  animation: photoDrift 40s ease-in-out infinite;
+}
+
+@keyframes photoDrift {
+  0%, 100% { transform: translateZ(0) scale(1.03) translate(0, 0); }
+  25% { transform: translateZ(0) scale(1.035) translate(-0.8%, 0.6%); }
+  50% { transform: translateZ(0) scale(1.03) translate(0.6%, -0.5%); }
+  75% { transform: translateZ(0) scale(1.04) translate(-0.5%, -0.3%); }
+}
+
+/* Base Layer - Deep forest gradient */
+.forest-base {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 30% 20%, rgba(20, 30, 55, 0.7) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(35, 50, 75, 0.6) 0%, transparent 60%),
+    linear-gradient(180deg, 
+      rgba(13, 20, 32, 0.55) 0%,
+      rgba(15, 26, 46, 0.5) 30%, 
+      rgba(30, 45, 71, 0.45) 60%,
+      rgba(26, 40, 66, 0.4) 100%
+    );
+  will-change: transform;
+  opacity: 0.65;
+}
+
+/* Depth Layers - Parallax forest silhouettes */
+.forest-depth-layers {
+  position: absolute;
+  inset: 0;
+}
+
+.depth-layer {
+  position: absolute;
+  inset: 0;
+    opacity: 0.25;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  will-change: transform;
+}
+
+.depth-far {
+  background-image: 
+    radial-gradient(ellipse 8px 120px at 15% 100%, rgba(15, 23, 42, 0.9) 0%, transparent 100%),
+    radial-gradient(ellipse 6px 100px at 35% 100%, rgba(15, 23, 42, 0.85) 0%, transparent 100%),
+    radial-gradient(ellipse 10px 140px at 55% 100%, rgba(15, 23, 42, 0.9) 0%, transparent 100%),
+    radial-gradient(ellipse 7px 110px at 75% 100%, rgba(15, 23, 42, 0.88) 0%, transparent 100%),
+    radial-gradient(ellipse 9px 130px at 90% 100%, rgba(15, 23, 42, 0.87) 0%, transparent 100%);
+  animation: forestSway 40s ease-in-out infinite;
+  transform: translateZ(0);
+}
+
+.depth-mid {
+  background-image: 
+    radial-gradient(ellipse 12px 160px at 10% 100%, rgba(30, 41, 59, 0.75) 0%, transparent 100%),
+    radial-gradient(ellipse 15px 180px at 28% 100%, rgba(30, 41, 59, 0.8) 0%, transparent 100%),
+    radial-gradient(ellipse 18px 200px at 50% 100%, rgba(30, 41, 59, 0.85) 0%, transparent 100%),
+    radial-gradient(ellipse 14px 170px at 68% 100%, rgba(30, 41, 59, 0.78) 0%, transparent 100%),
+    radial-gradient(ellipse 16px 190px at 85% 100%, rgba(30, 41, 59, 0.82) 0%, transparent 100%);
+  opacity: 0.2;
+  animation: forestSway 30s ease-in-out infinite reverse;
+  animation-delay: -5s;
+  transform: translateZ(0);
+}
+
+.depth-near {
+  background-image: 
+    radial-gradient(ellipse 20px 220px at 20% 100%, rgba(51, 65, 85, 0.6) 0%, transparent 100%),
+    radial-gradient(ellipse 24px 240px at 42% 100%, rgba(51, 65, 85, 0.65) 0%, transparent 100%),
+    radial-gradient(ellipse 22px 260px at 65% 100%, rgba(51, 65, 85, 0.7) 0%, transparent 100%),
+    radial-gradient(ellipse 26px 250px at 82% 100%, rgba(51, 65, 85, 0.62) 0%, transparent 100%);
+  opacity: 0.25;
+  animation: forestSway 25s ease-in-out infinite;
+  animation-delay: -10s;
+  transform: translateZ(0);
+}
+
+@keyframes forestSway {
+  0%, 100% { transform: translateX(0) scale(1); }
+  25% { transform: translateX(-0.5%) scale(1.002); }
+  50% { transform: translateX(0.3%) scale(1); }
+  75% { transform: translateX(-0.3%) scale(1.001); }
+}
+
+/* Mist Layers - Drifting fog effect */
+.mist-container {
+  position: absolute;
+  inset: 0;
+    opacity: 0.75;
+  mix-blend-mode: screen;
+}
+
+.mist-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+.mist-1 {
+  animation: mistDrift1 50s ease-in-out infinite;
+}
+
+.mist-2 {
+  animation: mistDrift2 60s ease-in-out infinite;
+  animation-delay: -20s;
+}
+
+.mist-3 {
+  animation: mistDrift3 45s ease-in-out infinite;
+  animation-delay: -15s;
+}
+
+@keyframes mistDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  25% { transform: translate(-2%, 1%) scale(1.02); opacity: 0.7; }
+  50% { transform: translate(1%, -1%) scale(1); opacity: 0.5; }
+  75% { transform: translate(-1%, 0.5%) scale(1.01); opacity: 0.65; }
+}
+
+@keyframes mistDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  30% { transform: translate(2%, -1%) scale(1.03); opacity: 0.6; }
+  60% { transform: translate(-1.5%, 1%) scale(1); opacity: 0.45; }
+  80% { transform: translate(1%, -0.5%) scale(1.02); opacity: 0.55; }
+}
+
+@keyframes mistDrift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.55; }
+  20% { transform: translate(-1%, 1.5%) scale(1.01); opacity: 0.65; }
+  55% { transform: translate(2%, -1%) scale(1.03); opacity: 0.5; }
+  85% { transform: translate(-1.5%, 0.5%) scale(1); opacity: 0.6; }
+}
+
+/* Light Rays - Soft god rays */
+.light-rays-container {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  mix-blend-mode: soft-light;
+  overflow: hidden;
+}
+
+.light-ray {
+  position: absolute;
+  top: -50%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(100, 181, 246, 0.3) 0%,
+    rgba(100, 181, 246, 0.15) 40%,
+    transparent 100%
+  );
+  filter: blur(8px);
+  will-change: transform, opacity;
+  transform-origin: top center;
+  transform: translateZ(0);
+}
+
+.ray-1 {
+  left: 20%;
+  animation: rayShimmer 15s ease-in-out infinite;
+}
+
+.ray-2 {
+  left: 45%;
+  animation: rayShimmer 18s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+.ray-3 {
+  left: 65%;
+  animation: rayShimmer 20s ease-in-out infinite;
+  animation-delay: -10s;
+}
+
+.ray-4 {
+  left: 85%;
+  animation: rayShimmer 16s ease-in-out infinite;
+  animation-delay: -8s;
+}
+
+@keyframes rayShimmer {
+  0%, 100% { opacity: 0.4; transform: scaleY(1) rotate(2deg); }
+  25% { opacity: 0.6; transform: scaleY(1.05) rotate(1deg); }
+  50% { opacity: 0.3; transform: scaleY(0.95) rotate(3deg); }
+  75% { opacity: 0.5; transform: scaleY(1.02) rotate(0deg); }
+}
+
+/* Ambient Glows - Bioluminescent spots */
+.ambient-glows {
+  position: absolute;
+  inset: 0;
+    opacity: 0.45;
+}
+
+.glow-spot {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+.glow-1 {
+  width: 300px;
+  height: 300px;
+    background: radial-gradient(circle, rgba(0, 200, 180, 0.25) 0%, transparent 70%);
+  top: 20%;
+  left: 15%;
+  animation: glowPulse1 12s ease-in-out infinite;
+}
+
+.glow-2 {
+  width: 250px;
+  height: 250px;
+    background: radial-gradient(circle, rgba(100, 181, 246, 0.22) 0%, transparent 70%);
+  top: 60%;
+  right: 20%;
+  animation: glowPulse2 15s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+.glow-3 {
+  width: 200px;
+  height: 200px;
+    background: radial-gradient(circle, rgba(156, 39, 176, 0.18) 0%, transparent 70%);
+  bottom: 30%;
+  left: 35%;
+  animation: glowPulse3 18s ease-in-out infinite;
+  animation-delay: -8s;
+}
+
+.glow-4 {
+  width: 280px;
+  height: 280px;
+    background: radial-gradient(circle, rgba(0, 150, 136, 0.15) 0%, transparent 70%);
+  top: 45%;
+  right: 40%;
+  animation: glowPulse1 14s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+@keyframes glowPulse1 {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.3; }
+  33% { transform: scale(1.15) translate(5%, 3%); opacity: 0.4; }
+  66% { transform: scale(0.95) translate(-3%, -2%); opacity: 0.25; }
+}
+
+@keyframes glowPulse2 {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.25; }
+  40% { transform: scale(1.2) translate(-4%, 5%); opacity: 0.35; }
+  70% { transform: scale(0.9) translate(3%, -3%); opacity: 0.2; }
+}
+
+@keyframes glowPulse3 {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.2; }
+  50% { transform: scale(1.1) translate(2%, -4%); opacity: 0.3; }
+}
+
+/* Shadow Overlay - Moving darkness */
+.shadow-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 20% 40%, rgba(0, 0, 0, 0.3) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 70%, rgba(0, 0, 0, 0.25) 0%, transparent 45%);
+  animation: shadowShift 35s ease-in-out infinite;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+@keyframes shadowShift {
+  0%, 100% { opacity: 0.4; transform: translate(0, 0) scale(1); }
+  25% { opacity: 0.5; transform: translate(2%, 1%) scale(1.02); }
+  50% { opacity: 0.35; transform: translate(-1%, -1%) scale(1); }
+  75% { opacity: 0.45; transform: translate(-2%, 1%) scale(1.01); }
+}
+
+/* Performance optimizations for mobile */
+@media (prefers-reduced-motion: reduce) {
+  .dark-forest-background *,
+  .dark-forest-background::before,
+  .dark-forest-background::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Reduce complexity on smaller screens */
+@media (max-width: 768px) {
+  .light-rays-container {
+    opacity: 0.04;
+  }
+  
+  .mist-container {
+    opacity: 0.4;
+  }
+  
+  .ambient-glows {
+    opacity: 0.2;
+  }
+  
+  .depth-layer {
+    opacity: 0.1;
+  }
+}

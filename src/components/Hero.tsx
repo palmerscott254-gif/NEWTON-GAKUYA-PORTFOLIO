@@ -5,10 +5,6 @@ import { memo } from 'react';
 const Hero = memo(() => {
   return (
     <section className="relative py-20 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 hero-gradient pointer-events-none" />
-      <div className="absolute inset-0 opacity-[0.15] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15)_0%,transparent_60%)]" />
-      <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-primary/20 blur-3xl animate-pulse-slow" />
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-secondary/20 blur-3xl animate-pulse-slower" />
       <motion.div
         variants={ANIMATION_VARIANTS.staggerContainer}
         initial="initial"
