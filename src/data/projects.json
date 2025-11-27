@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Project A",
+    "description": "Django REST + React SPA.",
+    "href": "#"
+  },
+  {
+    "title": "Project B",
+    "description": "Python data tool.",
+    "href": "#"
+  }
+]

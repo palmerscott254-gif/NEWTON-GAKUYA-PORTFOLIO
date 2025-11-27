@@ -1,3 +1,26 @@
+# Newton Gakuya Portfolio (React + Vite)
+
+Modern, production-ready portfolio rebuilt with React, TypeScript, Vite, Tailwind, Router, framer-motion, and PWA.
+
+## Quick Start
+
+```powershell
+npm install
+npm run dev
+```
+
+## Scripts
+
+- `npm run dev` — start dev server
+- `npm run build` — production build
+- `npm run preview` — preview build
+- `npm run lint` — ESLint check
+- `npm run format` — Prettier format
+
+## Deploy (Netlify)
+
+- Build command: `npm run build`
+- Publish directory: `dist`
 # Newton Gakuya - Professional Portfolio 🚀
 
 [![Netlify Status](https://img.shields.io/badge/Deployed-Netlify-00C7B7?logo=netlify)](https://newtongakuya.netlify.app/)
