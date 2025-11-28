@@ -45,3 +45,19 @@ export const FinanceIcon = () => (
     <circle cx="19" cy="6" r="1" />
   </svg>
 );
+
+export const PhotoshopIcon = () => (
+  <svg viewBox="0 0 128 128" className="w-6 h-6" aria-hidden>
+    <rect width="128" height="128" rx="24" fill="#001E36" />
+    <path fill="#31A8FF" d="M33 102V26h24c8.5 0 15.2 2.3 20 6.8 4.8 4.6 7.2 10.4 7.2 17.5 0 7.8-2.6 14-7.7 18.5-5.2 4.5-12.2 6.8-21 6.8h-8.8V102H33zm13.7-38.5h9.3c4.5 0 8-1.2 10.4-3.5s3.6-5.5 3.6-9.5c0-3.8-1.2-6.8-3.7-9-2.5-2.2-6-3.3-10.5-3.3h-9.1v25.3zm51.8 17.8c0-3.2 1-5.7 2.9-7.5 2-1.8 4.4-2.7 7.3-2.7 2.9 0 5.3.9 7.2 2.7 1.9 1.8 2.8 4.3 2.8 7.5s-1 5.7-2.9 7.5c-1.9 1.8-4.3 2.7-7.2 2.7-2.9 0-5.3-.9-7.3-2.7-1.9-1.8-2.8-4.3-2.8-7.5z" />
+  </svg>
+);
+
+export const MarketingIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+    <path d="M12 19l7-7 3 3-7 7-3-3z" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M2 2l7.586 7.586" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="11" cy="11" r="2" />
+  </svg>
+);

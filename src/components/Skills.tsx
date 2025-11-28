@@ -1,9 +1,19 @@
 import { motion } from 'framer-motion';
 import { memo } from 'react';
 import { ANIMATION_VARIANTS } from '@lib/constants';
-import { DjangoIcon, PythonIcon, ReactIcon, HtmlIcon, CssIcon, JsIcon, FinanceIcon } from './SkillIcons';
+import { DjangoIcon, PythonIcon, ReactIcon, HtmlIcon, CssIcon, JsIcon, FinanceIcon, PhotoshopIcon, MarketingIcon } from './SkillIcons';
 
-const skillCategories = [
+interface SkillItem {
+  name: string;
+  icon?: JSX.Element;
+}
+
+interface SkillCategory {
+  title: string;
+  skills: SkillItem[];
+}
+
+const skillCategories: SkillCategory[] = [
   {
     title: 'Full-Stack Development',
     skills: [
@@ -16,12 +26,12 @@ const skillCategories = [
     ]
   },
   {
-    title: 'Business & Finance',
+    title: 'Business & Design',
     skills: [
       { name: 'Financial Analysis', icon: <FinanceIcon /> },
       { name: 'Accounting', icon: <FinanceIcon /> },
-      { name: 'Financial Management', icon: <FinanceIcon /> },
-      { name: 'Business Advising', icon: <FinanceIcon /> },
+      { name: 'Marketing & Sales', icon: <MarketingIcon /> },
+      { name: 'Photoshop', icon: <PhotoshopIcon /> },
     ]
   },
   {
@@ -92,23 +102,29 @@ const Skills = memo(() => {
               </div>
             </div>
 
-            {/* Visual Accent */}
+            {/* Visual Accent - Stats */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="hidden lg:block relative h-64 rounded-2xl overflow-hidden border border-slate-700/50"
+              className="hidden lg:block relative rounded-2xl overflow-hidden border border-slate-700/50"
               style={{
                 background: 'radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.15), transparent 60%), radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.15), transparent 60%), linear-gradient(135deg, rgba(30,41,59,0.95), rgba(51,65,85,0.9))',
               }}
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="text-6xl font-bold bg-gradient-to-r from-primary-400 to-blue-400 bg-clip-text text-transparent">
-                    6+
+              <div className="grid grid-cols-2 divide-x divide-slate-700/50">
+                <div className="p-8 text-center">
+                  <div className="text-5xl font-bold bg-gradient-to-r from-primary-400 to-blue-400 bg-clip-text text-transparent mb-2">
+                    2+
                   </div>
-                  <p className="text-slate-300 text-lg font-medium">Core Technologies</p>
+                  <p className="text-slate-300 text-sm font-medium">Years Experience</p>
+                </div>
+                <div className="p-8 text-center">
+                  <div className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-primary-400 bg-clip-text text-transparent mb-2">
+                    17+
+                  </div>
+                  <p className="text-slate-300 text-sm font-medium">Projects Completed</p>
                 </div>
               </div>
             </motion.div>

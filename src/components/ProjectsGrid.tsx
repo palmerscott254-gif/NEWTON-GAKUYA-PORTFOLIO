@@ -76,8 +76,6 @@ const ProjectsGrid = memo(({ limit, featured = false }: ProjectsGridProps) => {
     return filteredProjects;
   }, [limit, featured]);
 
-  console.log('ProjectsGrid rendering, projects count:', projects.length);
-
   if (projects.length === 0) {
     return <div className="text-white text-center py-8">No projects found.</div>;
   }
