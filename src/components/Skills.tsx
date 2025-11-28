@@ -20,7 +20,8 @@ const Skills = memo(() => {
         
         <motion.div
           variants={ANIMATION_VARIANTS.slideUp}
-          className="glass-card p-6 md:p-8 space-y-6"
+          className="glass-card p-4 sm:p-6 md:p-8 space-y-6"
+          style={{ backdropFilter: 'blur(20px)', background: 'linear-gradient(135deg, rgba(30,41,59,0.85) 60%, rgba(51,65,85,0.7) 100%)', boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25), 0 1.5px 8px 0 rgba(80,200,255,0.08)' }}
         >
           <div className="prose prose-invert max-w-none">
             <p className="text-lg leading-relaxed text-slate-300">

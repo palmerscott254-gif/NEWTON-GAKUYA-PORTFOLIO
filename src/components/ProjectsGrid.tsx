@@ -14,7 +14,8 @@ const ProjectCard = memo(({ project, index }: { project: Project; index: number 
     <motion.article
       variants={ANIMATION_VARIANTS.slideUp}
       custom={index}
-      className="card p-6 group hover:scale-105 transition-transform duration-300"
+      className="card p-4 sm:p-6 group hover:scale-[1.03] active:scale-95 transition-transform duration-300 min-h-[320px] flex flex-col justify-between"
+      style={{ backdropFilter: 'blur(20px)', background: 'linear-gradient(135deg, rgba(30,41,59,0.85) 60%, rgba(51,65,85,0.7) 100%)', boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25), 0 1.5px 8px 0 rgba(80,200,255,0.08)' }}
     >
       {project.icon && (
         <div className="text-4xl mb-4" role="img" aria-label={project.title}>
@@ -90,7 +91,8 @@ const ProjectsGrid = memo(({ limit, featured = false }: ProjectsGridProps) => {
         
         <motion.div
           variants={ANIMATION_VARIANTS.staggerContainer}
-          className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-8 grid gap-6 grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3"
+          style={{ gridAutoRows: '1fr' }}
         >
           {projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
