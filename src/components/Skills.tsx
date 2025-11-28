@@ -1,42 +1,156 @@
 import { motion } from 'framer-motion';
 import { memo } from 'react';
 import { ANIMATION_VARIANTS } from '@lib/constants';
+import { DjangoIcon, PythonIcon, ReactIcon, HtmlIcon, CssIcon, JsIcon, FinanceIcon } from './SkillIcons';
+
+const skillCategories = [
+  {
+    title: 'Full-Stack Development',
+    skills: [
+      { name: 'Django', icon: <DjangoIcon /> },
+      { name: 'Python', icon: <PythonIcon /> },
+      { name: 'React', icon: <ReactIcon /> },
+      { name: 'HTML5', icon: <HtmlIcon /> },
+      { name: 'CSS3', icon: <CssIcon /> },
+      { name: 'JavaScript', icon: <JsIcon /> },
+    ]
+  },
+  {
+    title: 'Business & Finance',
+    skills: [
+      { name: 'Financial Analysis', icon: <FinanceIcon /> },
+      { name: 'Accounting', icon: <FinanceIcon /> },
+      { name: 'Financial Management', icon: <FinanceIcon /> },
+      { name: 'Business Advising', icon: <FinanceIcon /> },
+    ]
+  },
+  {
+    title: 'Soft Skills',
+    skills: [
+      { name: 'Leadership' },
+      { name: 'Communication' },
+      { name: 'Teamwork' },
+      { name: 'Strategic Thinking' },
+    ]
+  }
+];
 
 const Skills = memo(() => {
   return (
-    <section className="container py-12 md:py-16">
+    <section className="relative container py-16 md:py-24 overflow-hidden">
+      {/* Background Gradient Glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+      </div>
+
       <motion.div
         initial="initial"
         whileInView="animate"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
         variants={ANIMATION_VARIANTS.staggerContainer}
+        className="relative"
       >
-        <motion.h2
-          variants={ANIMATION_VARIANTS.slideUp}
-          className="text-3xl md:text-4xl font-bold mb-8"
-        >
-          Skills & Expertise
-        </motion.h2>
-        
+        {/* Header */}
         <motion.div
           variants={ANIMATION_VARIANTS.slideUp}
-          className="glass-card p-4 sm:p-6 md:p-8 space-y-6"
-          style={{ backdropFilter: 'blur(20px)', background: 'linear-gradient(135deg, rgba(30,41,59,0.85) 60%, rgba(51,65,85,0.7) 100%)', boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25), 0 1.5px 8px 0 rgba(80,200,255,0.08)' }}
+          className="text-center mb-12 md:mb-16"
         >
-          <div className="prose prose-invert max-w-none">
-            <p className="text-lg leading-relaxed text-slate-300">
-              As a <strong className="text-primary-300">full-stack developer</strong> with expertise in <strong className="text-primary-300">Django</strong>, <strong className="text-primary-300">Python</strong>, and <strong className="text-primary-300">React</strong>, I specialize in building scalable web applications with clean architecture and modern design patterns. My technical foundation includes advanced proficiency in <strong className="text-primary-300">HTML</strong>, <strong className="text-primary-300">CSS</strong>, and <strong className="text-primary-300">JavaScript</strong>, enabling me to craft responsive, performant user interfaces.
-            </p>
-            
-            <p className="text-lg leading-relaxed text-slate-300">
-              Beyond pure development, I bring a unique perspective from my background in <strong className="text-primary-300">Business & Commerce</strong>, with hands-on experience in <strong className="text-primary-300">financial analysis</strong>, <strong className="text-primary-300">accounting</strong>, <strong className="text-primary-300">financial management</strong>, and <strong className="text-primary-300">business advising</strong>. This combination allows me to understand both the technical implementation and the business value behind every feature.
-            </p>
-            
-            <p className="text-lg leading-relaxed text-slate-300">
-              I excel in <strong className="text-primary-300">leadership</strong> roles, driving teams toward common goals through effective <strong className="text-primary-300">communication</strong> and <strong className="text-primary-300">teamwork</strong>. My approach emphasizes <strong className="text-primary-300">strategic thinking</strong>, balancing immediate technical needs with long-term scalability and maintainability.
-            </p>
-          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-300 via-blue-300 to-primary-400 bg-clip-text text-transparent">
+            Skills & Expertise
+          </h2>
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            A comprehensive blend of technical prowess and business acumen
+          </p>
         </motion.div>
+
+        {/* Split Layout */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Left Side - Introduction */}
+          <motion.div
+            variants={ANIMATION_VARIANTS.slideUp}
+            className="space-y-6"
+          >
+            <div className="glass-card p-6 md:p-8 rounded-2xl border border-slate-700/50"
+              style={{ 
+                backdropFilter: 'blur(20px)', 
+                background: 'linear-gradient(135deg, rgba(30,41,59,0.9) 0%, rgba(51,65,85,0.8) 100%)', 
+                boxShadow: '0 8px 32px 0 rgba(0,0,0,0.3), 0 2px 16px 0 rgba(80,200,255,0.1)' 
+              }}
+            >
+              <h3 className="text-2xl font-bold mb-4 text-primary-300">What I Bring</h3>
+              <div className="space-y-4 text-slate-300 leading-relaxed">
+                <p>
+                  As a <span className="font-semibold text-white">full-stack developer</span>, I specialize in building scalable web applications with clean architecture and modern design patterns.
+                </p>
+                <p>
+                  My unique perspective comes from blending technical expertise with a strong foundation in <span className="font-semibold text-white">Business & Commerce</span>, allowing me to understand both implementation and business value.
+                </p>
+                <p>
+                  I excel in <span className="font-semibold text-white">leadership roles</span>, driving teams toward common goals through effective communication and strategic thinking.
+                </p>
+              </div>
+            </div>
+
+            {/* Visual Accent */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="hidden lg:block relative h-64 rounded-2xl overflow-hidden border border-slate-700/50"
+              style={{
+                background: 'radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.15), transparent 60%), radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.15), transparent 60%), linear-gradient(135deg, rgba(30,41,59,0.95), rgba(51,65,85,0.9))',
+              }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center space-y-4">
+                  <div className="text-6xl font-bold bg-gradient-to-r from-primary-400 to-blue-400 bg-clip-text text-transparent">
+                    6+
+                  </div>
+                  <p className="text-slate-300 text-lg font-medium">Core Technologies</p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Side - Skills Grid */}
+          <motion.div
+            variants={ANIMATION_VARIANTS.slideUp}
+            className="space-y-6"
+          >
+            {skillCategories.map((category, idx) => (
+              <motion.div
+                key={category.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                className="glass-card p-6 rounded-2xl border border-slate-700/50"
+                style={{ 
+                  backdropFilter: 'blur(20px)', 
+                  background: 'linear-gradient(135deg, rgba(30,41,59,0.85) 0%, rgba(51,65,85,0.75) 100%)', 
+                  boxShadow: '0 4px 24px 0 rgba(0,0,0,0.2), 0 1px 8px 0 rgba(80,200,255,0.08)' 
+                }}
+              >
+                <h3 className="text-xl font-bold mb-4 text-white">{category.title}</h3>
+                <div className="flex flex-wrap gap-3">
+                  {category.skills.map((skill) => (
+                    <motion.div
+                      key={skill.name}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary-300 ring-1 ring-primary/30 hover:ring-primary/50 transition-all duration-300 cursor-default"
+                    >
+                      {skill.icon && <span className="flex-shrink-0">{skill.icon}</span>}
+                      <span className="text-sm font-medium">{skill.name}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );
