@@ -48,10 +48,11 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const NAV_LINKS = [
-  { path: '/', label: 'Home' },
-  { path: '/projects', label: 'Projects' },
-  { path: '/about', label: 'About' },
-  { path: '/contact', label: 'Contact' }
+  { path: '#hero', label: 'Home' },
+  { path: '#about', label: 'About' },
+  { path: '#skills', label: 'Skills' },
+  { path: '#projects', label: 'Projects' },
+  { path: '#contact', label: 'Contact' }
 ] as const;
 
 export const ANIMATION_VARIANTS = {

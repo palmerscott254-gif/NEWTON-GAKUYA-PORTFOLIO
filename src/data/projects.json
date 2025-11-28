@@ -5,9 +5,10 @@
     "description": "Professional educational website for CPA learners featuring comprehensive study resources, course catalogs, enrollment systems, and student progress tracking.",
     "longDescription": "A comprehensive learning management system built with modern web technologies. Features include course management, student enrollment, progress tracking, and interactive learning materials.",
     "href": "https://cpa-website-1.onrender.com",
-    "tags": ["HTML", "CSS", "JavaScript", "Responsive", "Education"],
+    "tags": ["Django", "React", "Python", "REST API", "Education"],
     "icon": "🎓",
-    "featured": true
+    "featured": true,
+    "image": "/profilep.jpg"
   },
   {
     "id": "pie-global-furnitures",
@@ -17,7 +18,8 @@
     "href": "https://pie-global-funitures-git-main-palmerscott254-gifs-projects.vercel.app",
     "tags": ["HTML", "CSS", "JavaScript", "E-commerce", "UI/UX"],
     "icon": "🛋️",
-    "featured": true
+    "featured": true,
+    "image": "/profilep.jpg"
   },
   {
     "id": "professional-web-designs",
@@ -27,6 +29,7 @@
     "href": "https://github.com/palmerscott254-gif",
     "tags": ["React", "CSS3", "Animations", "UI/UX", "Accessibility"],
     "icon": "🎨",
-    "featured": true
+    "featured": true,
+    "image": "/profilep.jpg"
   }
 ]

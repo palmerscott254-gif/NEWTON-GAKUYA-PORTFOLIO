@@ -1,4 +1,3 @@
-import { Link, NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { memo, useState, useEffect } from 'react';
 import { NAV_LINKS } from '@lib/constants';
@@ -20,12 +19,7 @@ const Header = memo(() => {
     };
   }, [isMobileMenuOpen]);
 
-  const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `relative py-2 px-1 font-medium transition-colors ${
-      isActive
-        ? 'text-primary-400'
-        : 'text-slate-300 hover:text-white'
-    }`;
+  const navLinkClass = `relative py-2 px-1 font-medium transition-colors text-slate-300 hover:text-white`;
 
   return (
     <header
@@ -36,19 +30,19 @@ const Header = memo(() => {
       }`}
     >
       <div className="container flex h-16 md:h-20 items-center justify-between">
-        <Link
-          to="/"
+        <a
+          href="#hero"
           className="font-extrabold tracking-tight text-xl md:text-2xl bg-gradient-to-r from-primary-400 to-secondary bg-clip-text text-transparent hover:from-primary-300 hover:to-secondary-400 transition-all"
         >
           NG
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
           {NAV_LINKS.map((link) => (
-            <NavLink key={link.path} to={link.path} className={navLinkClass}>
+            <a key={link.path} href={link.path} className={navLinkClass}>
               {link.label}
-            </NavLink>
+            </a>
           ))}
         </nav>
 
@@ -96,20 +90,14 @@ const Header = memo(() => {
           >
             <div className="container py-4 flex flex-col gap-2">
               {NAV_LINKS.map((link) => (
-                <NavLink
+                <a
                   key={link.path}
-                  to={link.path}
+                  href={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `py-3 px-4 rounded-md transition-colors ${
-                      isActive
-                        ? 'bg-primary/10 text-primary-400'
-                        : 'text-slate-300 hover:bg-slate-800 hover:text-white'
-                    }`
-                  }
+                  className={`py-3 px-4 rounded-md transition-colors text-slate-300 hover:bg-slate-800 hover:text-white`}
                 >
                   {link.label}
-                </NavLink>
+                </a>
               ))}
             </div>
           </motion.nav>
