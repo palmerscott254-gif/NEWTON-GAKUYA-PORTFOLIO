@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { memo, useMemo, useState } from 'react';
+import { memo, useMemo } from 'react';
 import type { Project } from '../types/index';
 import { ANIMATION_VARIANTS } from '@lib/constants';
 import projectsData from '@data/projects.json';
@@ -21,7 +21,7 @@ const ProjectCard = memo(({ project, index }: { project: Project; index: number 
         <img
           src={project.image}
           alt={project.title + ' screenshot'}
-          className="w-full h-48 object-cover rounded-lg mb-4 border border-slate-700 shadow"
+          className="w-full h-auto object-contain rounded-lg mb-4 border border-slate-700 shadow bg-slate-800/50"
           loading="lazy"
         />
       )}
@@ -76,11 +76,6 @@ const ProjectsGrid = memo(({ limit, featured = false }: ProjectsGridProps) => {
     return filteredProjects;
   }, [limit, featured]);
 
-  const [current, setCurrent] = useState(0);
-
-  const handlePrev = () => setCurrent((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
-  const handleNext = () => setCurrent((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
-
   return (
     <section className="container py-12 md:py-16">
       <motion.div
@@ -91,48 +86,24 @@ const ProjectsGrid = memo(({ limit, featured = false }: ProjectsGridProps) => {
       >
         <motion.h2
           variants={ANIMATION_VARIANTS.slideUp}
-          className="text-3xl md:text-4xl font-bold"
+          className="text-3xl md:text-4xl font-bold mb-8"
         >
           {featured ? 'Featured Projects' : 'All Projects'}
         </motion.h2>
 
-        <div className="mt-8 flex flex-col items-center">
-          <motion.div
-            key={projects[current]?.id}
-            initial={{ y: -40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 40, opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="w-full max-w-2xl"
-          >
-            <ProjectCard project={projects[current]} index={current} />
-          </motion.div>
-          <div className="flex gap-4 mt-6">
-            <button
-              onClick={handlePrev}
-              className="px-4 py-2 rounded bg-slate-700 text-white hover:bg-slate-600 transition"
-              aria-label="Previous Project"
+        <div className="flex flex-col gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="w-full"
             >
-              Prev
-            </button>
-            <button
-              onClick={handleNext}
-              className="px-4 py-2 rounded bg-slate-700 text-white hover:bg-slate-600 transition"
-              aria-label="Next Project"
-            >
-              Next
-            </button>
-          </div>
-          <div className="flex gap-2 mt-4">
-            {projects.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrent(idx)}
-                className={`w-3 h-3 rounded-full ${current === idx ? 'bg-primary-400' : 'bg-slate-500'} transition`}
-                aria-label={`Go to project ${idx + 1}`}
-              />
-            ))}
-          </div>
+              <ProjectCard project={project} index={index} />
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>

@@ -8,7 +8,7 @@
     "tags": ["Django", "React", "Python", "REST API", "Education"],
     "icon": "🎓",
     "featured": true,
-    "image": "/profilep.jpg"
+    "image": "/cpa-academy.png"
   },
   {
     "id": "pie-global-furnitures",
@@ -16,10 +16,10 @@
     "description": "Modern e-commerce website for furniture brand showcasing product collections, interactive catalogs, customer testimonials, and seamless contact integration.",
     "longDescription": "Full-featured e-commerce platform with product catalog, shopping cart, customer reviews, and integrated payment processing. Built with focus on user experience and conversion optimization.",
     "href": "https://pie-global-funitures-git-main-palmerscott254-gifs-projects.vercel.app",
-    "tags": ["HTML", "CSS", "JavaScript", "E-commerce", "UI/UX"],
+    "tags": ["Django", "React", "Python", "E-commerce", "UI/UX"],
     "icon": "🛋️",
     "featured": true,
-    "image": "/profilep.jpg"
+    "image": "/pie-global.png"
   },
   {
     "id": "professional-web-designs",
@@ -30,6 +30,6 @@
     "tags": ["React", "CSS3", "Animations", "UI/UX", "Accessibility"],
     "icon": "🎨",
     "featured": true,
-    "image": "/profilep.jpg"
+    "image": "https://i.pinimg.com/1200x/6c/be/dd/6cbedd5e2f6d39fd75f905d3b8cf4b42.jpg"
   }
 ]
