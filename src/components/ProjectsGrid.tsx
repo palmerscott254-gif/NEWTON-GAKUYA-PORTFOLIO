@@ -76,37 +76,27 @@ const ProjectsGrid = memo(({ limit, featured = false }: ProjectsGridProps) => {
     return filteredProjects;
   }, [limit, featured]);
 
-  return (
-    <section className="container py-12 md:py-16">
-      <motion.div
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={ANIMATION_VARIANTS.staggerContainer}
-      >
-        <motion.h2
-          variants={ANIMATION_VARIANTS.slideUp}
-          className="text-3xl md:text-4xl font-bold mb-8"
-        >
-          {featured ? 'Featured Projects' : 'All Projects'}
-        </motion.h2>
+  console.log('ProjectsGrid rendering, projects count:', projects.length);
 
-        <div className="flex flex-col gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="w-full"
-            >
-              <ProjectCard project={project} index={index} />
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-    </section>
+  if (projects.length === 0) {
+    return <div className="text-white text-center py-8">No projects found.</div>;
+  }
+
+  return (
+    <div className="flex flex-col gap-8">
+      {projects.map((project, index) => (
+        <motion.div
+          key={project.id}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          className="w-full"
+        >
+          <ProjectCard project={project} index={index} />
+        </motion.div>
+      ))}
+    </div>
   );
 });
 
