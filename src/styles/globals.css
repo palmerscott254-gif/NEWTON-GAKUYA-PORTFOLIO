@@ -43,17 +43,17 @@ body {
 
 .card {
   @apply rounded-2xl bg-gradient-to-br from-slate-900/90 to-slate-800/90 shadow-card ring-1 ring-slate-700/60 transition-all duration-300 hover:ring-slate-600/80 hover:shadow-premium backdrop-blur-xl hover:-translate-y-1;
-+}
-+
-+.glass-card {
+}
+
+.glass-card {
   @apply rounded-2xl bg-white/5 shadow-card ring-1 ring-white/10 transition-all duration-300 hover:ring-white/20 hover:shadow-premium backdrop-blur-2xl hover:-translate-y-1;
-+}
-+
-+.section-heading {
+}
+
+.section-heading {
   @apply text-4xl md:text-5xl lg:text-6xl font-black tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-transparent;
-+}
-+
-+.section-subheading {
+}
+
+.section-subheading {
   @apply text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl;
 }
 
