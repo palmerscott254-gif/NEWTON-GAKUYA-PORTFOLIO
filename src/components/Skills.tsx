@@ -47,94 +47,86 @@ const skillCategories: SkillCategory[] = [
 
 const Skills = memo(() => {
   return (
-    <section className="relative container py-16 md:py-24 overflow-hidden">
-      {/* Background Gradient Glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-      </div>
+    <section className="relative py-20 md:py-32 overflow-hidden">
+      <div className="container">
+        {/* Background Gradient Glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+        </div>
 
-      <motion.div
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={ANIMATION_VARIANTS.staggerContainer}
-        className="relative"
-      >
-        {/* Header */}
         <motion.div
-          variants={ANIMATION_VARIANTS.slideUp}
-          className="text-center mb-12 md:mb-16"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={ANIMATION_VARIANTS.staggerContainer}
+          className="relative"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-300 via-blue-300 to-primary-400 bg-clip-text text-transparent">
-            Skills & Expertise
-          </h2>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            A comprehensive blend of technical prowess and business acumen
-          </p>
-        </motion.div>
-
-        {/* Split Layout */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* Left Side - Introduction */}
+          {/* Header */}
           <motion.div
             variants={ANIMATION_VARIANTS.slideUp}
-            className="space-y-6"
+            className="text-center mb-16 md:mb-20"
           >
-            <div className="glass-card p-6 md:p-8 rounded-2xl border border-slate-700/50"
-              style={{ 
-                backdropFilter: 'blur(20px)', 
-                background: 'linear-gradient(135deg, rgba(30,41,59,0.9) 0%, rgba(51,65,85,0.8) 100%)', 
-                boxShadow: '0 8px 32px 0 rgba(0,0,0,0.3), 0 2px 16px 0 rgba(80,200,255,0.1)' 
-              }}
-            >
-              <h3 className="text-2xl font-bold mb-4 text-primary-300">What I Bring</h3>
-              <div className="space-y-4 text-slate-300 leading-relaxed">
-                <p>
-                  As a <span className="font-semibold text-white">full-stack developer</span>, I specialize in building scalable web applications with clean architecture and modern design patterns.
-                </p>
-                <p>
-                  My unique perspective comes from blending technical expertise with a strong foundation in <span className="font-semibold text-white">Business & Commerce</span>, allowing me to understand both implementation and business value.
-                </p>
-                <p>
-                  I excel in <span className="font-semibold text-white">leadership roles</span>, driving teams toward common goals through effective communication and strategic thinking.
-                </p>
-              </div>
-            </div>
-
-            {/* Visual Accent - Stats */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="hidden lg:block relative rounded-2xl overflow-hidden border border-slate-700/50"
-              style={{
-                background: 'radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.15), transparent 60%), radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.15), transparent 60%), linear-gradient(135deg, rgba(30,41,59,0.95), rgba(51,65,85,0.9))',
-              }}
-            >
-              <div className="grid grid-cols-2 divide-x divide-slate-700/50">
-                <div className="p-8 text-center">
-                  <div className="text-5xl font-bold bg-gradient-to-r from-primary-400 to-blue-400 bg-clip-text text-transparent mb-2">
-                    2+
-                  </div>
-                  <p className="text-slate-300 text-sm font-medium">Years Experience</p>
-                </div>
-                <div className="p-8 text-center">
-                  <div className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-primary-400 bg-clip-text text-transparent mb-2">
-                    17+
-                  </div>
-                  <p className="text-slate-300 text-sm font-medium">Projects Completed</p>
-                </div>
-              </div>
-            </motion.div>
+            <h2 className="section-heading mb-6">
+              Skills & Expertise
+            </h2>
+            <p className="section-subheading mx-auto">
+              A comprehensive blend of technical prowess and business acumen
+            </p>
           </motion.div>
 
-          {/* Right Side - Skills Grid */}
-          <motion.div
-            variants={ANIMATION_VARIANTS.slideUp}
-            className="space-y-6"
-          >
+          {/* Split Layout */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Left Side - Introduction */}
+            <motion.div
+              variants={ANIMATION_VARIANTS.slideUp}
+              className="space-y-8"
+            >
+              <div className="glass-card p-8 md:p-10">
+                <h3 className="text-3xl font-black mb-6 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">What I Bring</h3>
+                <div className="space-y-5 text-slate-200 leading-relaxed text-base md:text-lg">
+                <p>
+                  As a <span className="font-bold text-cyan-400">full-stack developer</span>, I specialize in building scalable web applications with clean architecture and modern design patterns.
+                </p>
+                <p>
+                  My unique perspective comes from blending technical expertise with a strong foundation in <span className="font-bold text-blue-400">Business & Commerce</span>, allowing me to understand both implementation and business value.
+                </p>
+                <p>
+                  I excel in <span className="font-bold text-cyan-400">leadership roles</span>, driving teams toward common goals through effective communication and strategic thinking.
+                </p>
+                </div>
+              </div>
+
+              {/* Visual Accent - Stats */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="hidden lg:block glass-card overflow-hidden"
+              >
+                <div className="grid grid-cols-2 divide-x divide-white/10">
+                  <div className="p-10 text-center group hover:bg-white/5 transition-colors">
+                    <div className="text-6xl font-black bg-gradient-to-br from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform">
+                      2+
+                    </div>
+                    <p className="text-slate-300 text-sm font-bold uppercase tracking-wider">Years Experience</p>
+                  </div>
+                  <div className="p-10 text-center group hover:bg-white/5 transition-colors">
+                    <div className="text-6xl font-black bg-gradient-to-br from-blue-500 to-cyan-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform">
+                      17+
+                    </div>
+                    <p className="text-slate-300 text-sm font-bold uppercase tracking-wider">Projects Completed</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Side - Skills Grid */}
+            <motion.div
+              variants={ANIMATION_VARIANTS.slideUp}
+              className="space-y-6"
+            >
             {skillCategories.map((category, idx) => (
               <motion.div
                 key={category.title}
@@ -142,21 +134,16 @@ const Skills = memo(() => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.15 }}
-                className="glass-card p-6 rounded-2xl border border-slate-700/50"
-                style={{ 
-                  backdropFilter: 'blur(20px)', 
-                  background: 'linear-gradient(135deg, rgba(30,41,59,0.85) 0%, rgba(51,65,85,0.75) 100%)', 
-                  boxShadow: '0 4px 24px 0 rgba(0,0,0,0.2), 0 1px 8px 0 rgba(80,200,255,0.08)' 
-                }}
+                className="glass-card p-8"
               >
-                <h3 className="text-xl font-bold mb-4 text-white">{category.title}</h3>
+                <h3 className="text-2xl font-black mb-6 text-white">{category.title}</h3>
                 <div className="flex flex-wrap gap-3">
                   {category.skills.map((skill) => (
                     <motion.div
                       key={skill.name}
-                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileHover={{ scale: 1.08, y: -3 }}
                       whileTap={{ scale: 0.98 }}
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary-300 ring-1 ring-primary/30 hover:ring-primary/50 transition-all duration-300 cursor-default"
+                      className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 text-cyan-300 ring-1 ring-cyan-500/30 hover:ring-cyan-400/60 hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-blue-500/20 transition-all duration-300 cursor-default font-semibold text-sm"
                     >
                       {skill.icon && <span className="flex-shrink-0">{skill.icon}</span>}
                       <span className="text-sm font-medium">{skill.name}</span>
@@ -165,9 +152,10 @@ const Skills = memo(() => {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
-      </motion.div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 });

@@ -14,34 +14,33 @@ const ProjectCard = memo(({ project, index }: { project: Project; index: number 
     <motion.article
       variants={ANIMATION_VARIANTS.slideUp}
       custom={index}
-      className="card p-4 sm:p-6 group hover:scale-[1.03] active:scale-95 transition-transform duration-300 min-h-[320px] flex flex-col justify-between"
-      style={{ backdropFilter: 'blur(20px)', background: 'linear-gradient(135deg, rgba(30,41,59,0.85) 60%, rgba(51,65,85,0.7) 100%)', boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25), 0 1.5px 8px 0 rgba(80,200,255,0.08)' }}
+      className="glass-card p-6 sm:p-8 group hover:scale-[1.02] active:scale-98 transition-all duration-500 min-h-[380px] flex flex-col justify-between"
     >
       {project.image && (
         <img
           src={project.image}
           alt={project.title + ' screenshot'}
-          className="w-full h-auto object-contain rounded-lg mb-4 border border-slate-700 shadow bg-slate-800/50"
+          className="w-full h-auto object-contain rounded-xl mb-6 border border-slate-700/60 shadow-premium bg-black/70 group-hover:border-cyan-500/40 transition-all duration-500"
           loading="lazy"
         />
       )}
       {project.icon && (
-        <div className="text-4xl mb-4" role="img" aria-label={project.title}>
+        <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300" role="img" aria-label={project.title}>
           {project.icon}
         </div>
       )}
-      <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+      <h3 className="text-2xl font-black group-hover:text-cyan-400 transition-colors duration-300">
         {project.title}
       </h3>
-      <p className="mt-3 text-slate-300 leading-relaxed line-clamp-3">
+      <p className="mt-4 text-slate-300 leading-relaxed line-clamp-3 text-base">
         {project.description}
       </p>
       {project.tags && project.tags.length > 0 && (
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-6 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary-300 ring-1 ring-primary/20"
+              className="px-4 py-1.5 text-xs font-bold rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 text-cyan-300 ring-1 ring-cyan-500/30 uppercase tracking-wide"
             >
               {tag}
             </span>
@@ -52,10 +51,12 @@ const ProjectCard = memo(({ project, index }: { project: Project; index: number 
         href={project.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center mt-6 text-primary-400 font-semibold hover:text-primary-300 transition-colors group-hover:gap-2 gap-1"
+        className="inline-flex items-center mt-6 text-cyan-400 font-bold hover:text-cyan-300 transition-all group-hover:gap-3 gap-2 text-base"
       >
         View Project
-        <span className="transition-transform group-hover:translate-x-1">→</span>
+        <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
       </a>
     </motion.article>
   );
@@ -81,14 +82,14 @@ const ProjectsGrid = memo(({ limit, featured = false }: ProjectsGridProps) => {
   }
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="grid grid-cols-1 gap-8 md:gap-10">
       {projects.map((project, index) => (
         <motion.div
           key={project.id}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
+          transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="w-full"
         >
           <ProjectCard project={project} index={index} />

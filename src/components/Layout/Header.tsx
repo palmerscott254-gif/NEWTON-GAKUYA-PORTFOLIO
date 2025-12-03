@@ -19,20 +19,20 @@ const Header = memo(() => {
     };
   }, [isMobileMenuOpen]);
 
-  const navLinkClass = `relative py-2 px-1 font-medium transition-colors text-slate-300 hover:text-white`;
+  const navLinkClass = `relative py-2 px-1 font-semibold text-slate-300 hover:text-white transition-colors`;
 
   return (
     <header
       className={`sticky top-0 z-50 backdrop-blur-md transition-all duration-300 ${
         isScrolled
-          ? 'bg-slate-900/90 shadow-lg ring-1 ring-white/10'
-          : 'bg-slate-900/60 ring-1 ring-white/5'
+          ? 'bg-black/70 shadow-premium ring-1 ring-white/10'
+          : 'bg-black/40 ring-1 ring-white/5'
       }`}
     >
       <div className="container flex h-16 md:h-20 items-center justify-between">
         <a
           href="#hero"
-          className="font-extrabold tracking-tight text-xl md:text-2xl bg-gradient-to-r from-primary-400 to-secondary bg-clip-text text-transparent hover:from-primary-300 hover:to-secondary-400 transition-all"
+          className="font-extrabold tracking-tight text-xl md:text-2xl bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent hover:from-blue-300 hover:to-cyan-300 transition-all"
         >
           NG
         </a>
@@ -40,8 +40,11 @@ const Header = memo(() => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
           {NAV_LINKS.map((link) => (
-            <a key={link.path} href={link.path} className={navLinkClass}>
-              {link.label}
+            <a key={link.path} href={link.path} className={`${navLinkClass}`}>
+              <span className="relative">
+                {link.label}
+                <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 group-hover:w-full" />
+              </span>
             </a>
           ))}
         </nav>
@@ -49,7 +52,7 @@ const Header = memo(() => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden p-2 text-slate-300 hover:text-white transition-colors"
+          className="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
         >
@@ -86,7 +89,7 @@ const Header = memo(() => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-white/10 bg-slate-900/95 backdrop-blur-md"
+            className="md:hidden border-t border-white/10 bg-black/80 backdrop-blur-md"
           >
             <div className="container py-4 flex flex-col gap-2">
               {NAV_LINKS.map((link) => (
@@ -94,7 +97,7 @@ const Header = memo(() => {
                   key={link.path}
                   href={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`py-3 px-4 rounded-md transition-colors text-slate-300 hover:bg-slate-800 hover:text-white`}
+                  className={`py-3 px-4 rounded-lg transition-all text-slate-300 hover:bg-white/5 hover:text-white`}
                 >
                   {link.label}
                 </a>

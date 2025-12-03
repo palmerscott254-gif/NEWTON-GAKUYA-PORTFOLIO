@@ -5,6 +5,7 @@
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-xl: 24px;
+  --spacing-section: clamp(3rem, 8vw, 6rem);
 }
 
 /* Reset and Base Styles */
@@ -18,6 +19,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 html, body, #root {
@@ -25,20 +27,34 @@ html, body, #root {
 }
 
 body {
-  @apply bg-slate-900 text-slate-100 antialiased;
+  @apply bg-black text-slate-50 antialiased;
+  font-feature-settings: "kern" 1, "liga" 1;
+  letter-spacing: -0.011em;
 }
 
 /* Utility Classes */
 .container {
-  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  @apply mx-auto max-w-7xl px-6 sm:px-8 lg:px-12;
 }
 
 .btn {
-  @apply inline-flex items-center justify-center rounded-md bg-primary px-6 py-2.5 font-semibold text-white shadow-lg transition-all duration-200 hover:bg-primary-light hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-slate-900 active:scale-95;
+  @apply inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 px-8 py-3.5 font-bold text-white shadow-glow-lg transition-all duration-300 hover:shadow-glow hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-black active:scale-95;
 }
 
 .card {
-  @apply rounded-lg bg-slate-800/70 shadow-lg ring-1 ring-white/10 transition-all duration-300 hover:bg-slate-800 hover:shadow-xl hover:ring-white/20 backdrop-blur-sm;
+  @apply rounded-2xl bg-gradient-to-br from-slate-900/90 to-slate-800/90 shadow-card ring-1 ring-slate-700/60 transition-all duration-300 hover:ring-slate-600/80 hover:shadow-premium backdrop-blur-xl hover:-translate-y-1;
++}
++
++.glass-card {
+  @apply rounded-2xl bg-white/5 shadow-card ring-1 ring-white/10 transition-all duration-300 hover:ring-white/20 hover:shadow-premium backdrop-blur-2xl hover:-translate-y-1;
++}
++
++.section-heading {
+  @apply text-4xl md:text-5xl lg:text-6xl font-black tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-transparent;
++}
++
++.section-subheading {
+  @apply text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl;
 }
 
 /* Screen Reader Only */
@@ -117,17 +133,14 @@ body {
 
 /* Gradient Text */
 .gradient-text {
-  @apply bg-gradient-to-r from-primary-400 via-primary-500 to-secondary bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent;
 }
 
 /* Profile Frame */
 .profile-frame {
-  position: relative;
-  display: inline-flex;
-  padding: 0.75rem;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 60%);
-  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.08);
+  @apply relative inline-flex p-3 rounded-full;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 60%);
+  box-shadow: 0 20px 50px -15px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.1);
 }
 
 @keyframes gradientShift {
@@ -137,3 +150,15 @@ body {
 }
 
 .animate-gradientShift { animation: gradientShift 14s linear infinite; }
+
+/* Smooth transitions for interactive elements */
+a, button {
+  @apply transition-all duration-300 ease-out;
+}
+
+/* Improved heading hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-black tracking-tight;
+  font-feature-settings: "kern" 1;
+  letter-spacing: -0.02em;
+}

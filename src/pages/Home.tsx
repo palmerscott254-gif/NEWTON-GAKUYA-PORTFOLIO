@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { VideoBackground } from '@components/Background';
 import Hero from '@components/Hero';
 import Skills from '@components/Skills';
 import ProjectsGrid from '@components/ProjectsGrid';
@@ -9,17 +10,18 @@ import Contact from './Contact';
 export default function Home() {
   return (
     <>
-      <section id="hero">
+      <VideoBackground />
+      <section id="hero" className="relative z-10 bg-black bg-opacity-95">
         <Hero />
       </section>
       {/* Inline sections for smooth homepage flow */}
-      <section id="about">
+      <section id="about" className="relative z-10 bg-black bg-opacity-95">
         <About />
       </section>
-      <section id="skills">
+      <section id="skills" className="relative z-10 bg-black bg-opacity-95">
         <Skills />
       </section>
-      <section id="projects" className="container py-12 md:py-20">
+      <section id="projects" className="container py-12 md:py-20 relative z-10 bg-black bg-opacity-95">
         <motion.div
           initial="initial"
           animate="animate"
@@ -35,7 +37,7 @@ export default function Home() {
           <ProjectsGrid />
         </motion.div>
       </section>
-      <section id="contact">
+      <section id="contact" className="relative z-10 bg-black bg-opacity-95">
         <Contact />
       </section>
     </>
