@@ -58,7 +58,7 @@ const Hero = memo(() => {
             className="flex flex-wrap gap-4 pt-4"
           >
             <a
-              href="/contact"
+              href="#contact"
               className="group relative inline-flex items-center gap-3 px-8 py-4 text-lg font-bold rounded-xl bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 text-white shadow-glow-lg hover:shadow-glow transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -70,7 +70,7 @@ const Hero = memo(() => {
               </span>
             </a>
             <a
-              href="/projects"
+              href="#projects"
               className="inline-flex items-center gap-3 px-8 py-4 text-lg font-bold rounded-xl bg-white/10 backdrop-blur-md text-white shadow-premium ring-1 ring-white/20 hover:bg-white/20 hover:ring-white/30 hover:scale-105 active:scale-95 transition-all duration-300"
             >
               <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-glow" />
