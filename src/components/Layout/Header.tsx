@@ -19,14 +19,14 @@ const Header = memo(() => {
     };
   }, [isMobileMenuOpen]);
 
-  const navLinkClass = `relative py-2 px-1 font-semibold text-slate-300 hover:text-white transition-colors`;
+  const navLinkClass = `group relative py-2 px-1 font-semibold text-slate-300 hover:text-white transition-colors`;
 
   return (
     <header
       className={`sticky top-0 z-50 backdrop-blur-md transition-all duration-300 ${
         isScrolled
-          ? 'bg-black/70 shadow-premium ring-1 ring-white/10'
-          : 'bg-black/40 ring-1 ring-white/5'
+          ? 'bg-slate-950/70 shadow-premium ring-1 ring-cyan-100/10'
+          : 'bg-slate-950/40 ring-1 ring-white/5'
       }`}
     >
       <div className="container flex h-16 md:h-20 items-center justify-between">

@@ -6,6 +6,10 @@
   --radius-lg: 20px;
   --radius-xl: 24px;
   --spacing-section: clamp(3rem, 8vw, 6rem);
+  --surface-primary: #020617;
+  --surface-secondary: rgba(15, 23, 42, 0.74);
+  --accent-cyan: #22d3ee;
+  --accent-blue: #3b82f6;
 }
 
 /* Reset and Base Styles */
@@ -30,6 +34,11 @@ body {
   @apply bg-black text-slate-50 antialiased;
   font-feature-settings: "kern" 1, "liga" 1;
   letter-spacing: -0.011em;
+  font-family: 'Space Grotesk', Inter, system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(900px circle at 2% -8%, rgba(34, 211, 238, 0.12), transparent 45%),
+    radial-gradient(1000px circle at 96% -12%, rgba(59, 130, 246, 0.12), transparent 50%),
+    var(--surface-primary);
 }
 
 /* Utility Classes */
@@ -50,7 +59,8 @@ body {
 }
 
 .section-heading {
-  @apply text-4xl md:text-5xl lg:text-6xl font-black tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-transparent;
+  @apply text-4xl md:text-5xl lg:text-6xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent;
+  font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
 }
 
 .section-subheading {
@@ -156,9 +166,32 @@ a, button {
   @apply transition-all duration-300 ease-out;
 }
 
+.magnetic-button {
+  transform-style: preserve-3d;
+}
+
+.magnetic-button:hover {
+  transform: translateY(-2px);
+}
+
+.premium-surface {
+  background: linear-gradient(140deg, rgba(10, 16, 32, 0.85), rgba(7, 10, 20, 0.72));
+  backdrop-filter: blur(20px);
+}
+
 /* Improved heading hierarchy */
 h1, h2, h3, h4, h5, h6 {
   @apply font-black tracking-tight;
   font-feature-settings: "kern" 1;
   letter-spacing: -0.02em;
+  font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

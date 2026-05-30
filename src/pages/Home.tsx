@@ -3,6 +3,9 @@ import { VideoBackground } from '@components/Background';
 import Hero from '@components/Hero';
 import Skills from '@components/Skills';
 import ProjectsGrid from '@components/ProjectsGrid';
+import LiveStats from '@components/LiveStats';
+import JourneyTimeline from '@components/JourneyTimeline';
+import InteractiveTerminal from '@components/InteractiveTerminal';
 import { ANIMATION_VARIANTS } from '@lib/constants';
 import About from './About';
 import Contact from './Contact';
@@ -18,8 +21,14 @@ export default function Home() {
       <section id="about" className="relative z-10 bg-black bg-opacity-95">
         <About />
       </section>
+      <section id="timeline" className="relative z-10 bg-black bg-opacity-95">
+        <JourneyTimeline />
+      </section>
       <section id="skills" className="relative z-10 bg-black bg-opacity-95">
         <Skills />
+      </section>
+      <section id="stats" className="relative z-10 bg-black bg-opacity-95">
+        <LiveStats />
       </section>
       <section id="projects" className="container py-12 md:py-20 relative z-10 bg-black bg-opacity-95">
         <motion.div
@@ -36,6 +45,9 @@ export default function Home() {
           </motion.div>
           <ProjectsGrid />
         </motion.div>
+      </section>
+      <section id="terminal" className="relative z-10 bg-black bg-opacity-95">
+        <InteractiveTerminal />
       </section>
       <section id="contact" className="relative z-10 bg-black bg-opacity-95">
         <Contact />

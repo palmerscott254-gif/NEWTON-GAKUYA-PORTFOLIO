@@ -11,6 +11,9 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+  const emailIsValid = /^\S+@\S+\.\S+$/.test(formState.email);
+  const messageHasContent = formState.message.trim().length >= 10;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -186,9 +189,13 @@ export default function Contact() {
                     value={formState.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-5 py-4 bg-white/5 border border-slate-600/50 rounded-xl focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400/50 transition-all outline-none text-white placeholder:text-slate-500"
+                    className={`w-full px-5 py-4 bg-white/5 border rounded-xl focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400/50 transition-all outline-none text-white placeholder:text-slate-500 ${formState.email.length === 0 ? 'border-slate-600/50' : emailIsValid ? 'border-emerald-400/50' : 'border-red-400/60'}`}
                     placeholder="scott@example.com"
+                    aria-invalid={formState.email.length > 0 && !emailIsValid}
                   />
+                  {formState.email.length > 0 && !emailIsValid && (
+                    <p className="mt-2 text-xs font-semibold text-red-300">Please enter a valid email address.</p>
+                  )}
                 </div>
 
                 <div>
@@ -202,9 +209,12 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-5 py-4 bg-white/5 border border-slate-600/50 rounded-xl focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400/50 transition-all outline-none resize-none text-white placeholder:text-slate-500"
+                    className={`w-full px-5 py-4 bg-white/5 border rounded-xl focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400/50 transition-all outline-none resize-none text-white placeholder:text-slate-500 ${formState.message.length === 0 ? 'border-slate-600/50' : messageHasContent ? 'border-emerald-400/50' : 'border-yellow-300/60'}`}
                     placeholder="Tell me about your project..."
                   />
+                  {formState.message.length > 0 && !messageHasContent && (
+                    <p className="mt-2 text-xs font-semibold text-yellow-200">Add at least 10 characters for project context.</p>
+                  )}
                 </div>
 
                 <button
@@ -231,17 +241,27 @@ export default function Contact() {
                   )}
                 </button>
 
-                {submitStatus === 'success' && (
-                  <p className="text-green-400 text-sm text-center font-semibold">
-                    ✓ Message sent successfully! I'll get back to you soon.
-                  </p>
-                )}
+                <div aria-live="polite" className="min-h-6">
+                  {submitStatus === 'success' && (
+                    <motion.p
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-green-400 text-sm text-center font-semibold"
+                    >
+                      ✓ Message sent successfully! I'll get back to you soon.
+                    </motion.p>
+                  )}
 
-                {submitStatus === 'error' && (
-                  <p className="text-red-400 text-sm text-center font-semibold">
-                    ✗ Failed to send message. Please try again or email me directly.
-                  </p>
-                )}
+                  {submitStatus === 'error' && (
+                    <motion.p
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-400 text-sm text-center font-semibold"
+                    >
+                      ✗ Failed to send message. Please try again or email me directly.
+                    </motion.p>
+                  )}
+                </div>
               </form>
             </motion.div>
           </div>

@@ -1,17 +1,16 @@
 import { memo } from 'react';
-import { Link } from 'react-router-dom';
 import { SITE_CONFIG, SOCIAL_LINKS, CONTACT_INFO, NAV_LINKS } from '@lib/constants';
 
 const Footer = memo(() => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="mt-16 bg-slate-900/80 ring-1 ring-white/10">
+    <footer className="mt-16 border-t border-white/10 bg-slate-950/80 backdrop-blur-xl">
       <div className="container py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand Section */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold bg-gradient-to-r from-primary-400 to-secondary bg-clip-text text-transparent">
+            <h3 className="text-xl font-bold bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
               {SITE_CONFIG.name}
             </h3>
             <p className="text-sm text-slate-400 leading-relaxed">
@@ -25,13 +24,13 @@ const Footer = memo(() => {
             <h4 className="text-lg font-semibold text-slate-200">Quick Links</h4>
             <nav className="flex flex-col gap-2">
               {NAV_LINKS.map((link) => (
-                <Link
+                <a
                   key={link.path}
-                  to={link.path}
+                  href={link.path}
                   className="text-sm text-slate-400 hover:text-primary-400 transition-colors"
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
             </nav>
           </div>

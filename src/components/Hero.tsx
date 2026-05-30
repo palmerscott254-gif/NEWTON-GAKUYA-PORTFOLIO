@@ -1,14 +1,85 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ANIMATION_VARIANTS, SITE_CONFIG } from '@lib/constants';
-import { memo } from 'react';
+import { memo, useEffect, useMemo, useState, type CSSProperties, type MouseEvent } from 'react';
+
+const roles = ['Full-Stack Developer', 'Django Engineer', 'Problem Solver', 'Digital Creator'];
+
+function useTypingRoles(words: string[]) {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    if (!words.length) {
+      return;
+    }
+
+    const currentWord = words[wordIndex % words.length] ?? '';
+    const typingDelay = isDeleting ? 45 : 85;
+
+    const timer = window.setTimeout(() => {
+      if (!isDeleting) {
+        const nextText = currentWord.slice(0, displayText.length + 1);
+        setDisplayText(nextText);
+        if (nextText === currentWord) {
+          window.setTimeout(() => setIsDeleting(true), 900);
+        }
+      } else {
+        const nextText = currentWord.slice(0, Math.max(displayText.length - 1, 0));
+        setDisplayText(nextText);
+        if (!nextText.length) {
+          setIsDeleting(false);
+          setWordIndex((prev) => (prev + 1) % words.length);
+        }
+      }
+    }, typingDelay);
+
+    return () => window.clearTimeout(timer);
+  }, [displayText, isDeleting, wordIndex, words]);
+
+  return displayText;
+}
 
 const Hero = memo(() => {
+  const typedRole = useTypingRoles(roles);
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.5);
+  const smoothX = useSpring(mouseX, { stiffness: 80, damping: 18, mass: 0.3 });
+  const smoothY = useSpring(mouseY, { stiffness: 80, damping: 18, mass: 0.3 });
+
+  const glowX = useTransform(smoothX, (v) => `${v * 100}%`);
+  const glowY = useTransform(smoothY, (v) => `${v * 100}%`);
+
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 20 }, (_, index) => ({
+        id: index,
+        left: `${(index * 31) % 100}%`,
+        top: `${(index * 17 + 8) % 100}%`,
+        size: (index % 4) + 2,
+        duration: 8 + (index % 5) * 1.2,
+        delay: (index % 6) * 0.35
+      })),
+    []
+  );
+
+  const handlePointerMove = (event: MouseEvent<HTMLElement>) => {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width;
+    const y = (event.clientY - bounds.top) / bounds.height;
+    mouseX.set(Math.min(Math.max(x, 0), 1));
+    mouseY.set(Math.min(Math.max(y, 0), 1));
+  };
+
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen flex items-center overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+    <section
+      className="relative flex min-h-[94vh] items-center overflow-hidden"
+      onMouseMove={handlePointerMove}
+      aria-labelledby="hero-title"
+    >
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <video
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover scale-105"
+          className="absolute left-1/2 top-1/2 h-auto min-h-full min-w-full w-auto -translate-x-1/2 -translate-y-1/2 object-cover scale-110"
           autoPlay
           loop
           muted
@@ -16,9 +87,44 @@ const Hero = memo(() => {
         >
           <source src="/background video.mp4" type="video/mp4" />
         </video>
-        {/* Enhanced gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+
+        <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_15%_10%,rgba(34,211,238,0.22),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_85%_10%,rgba(59,130,246,0.22),transparent_55%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/75 via-slate-950/70 to-black/90" />
+
+        <motion.div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: 'radial-gradient(360px circle at var(--mx) var(--my), rgba(56,189,248,0.25), transparent 65%)',
+            '--mx': glowX,
+            '--my': glowY
+          } as CSSProperties}
+        />
+
+        {particles.map((particle) => (
+          <motion.span
+            key={particle.id}
+            className="absolute rounded-full bg-cyan-200/60"
+            style={{
+              left: particle.left,
+              top: particle.top,
+              width: particle.size,
+              height: particle.size
+            }}
+            animate={{
+              y: [0, -22, 0],
+              opacity: [0.2, 0.95, 0.2],
+              scale: [1, 1.25, 1]
+            }}
+            transition={{
+              duration: particle.duration,
+              delay: particle.delay,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }}
+            aria-hidden="true"
+          />
+        ))}
       </div>
 
       <div className="container relative z-10 py-20">
@@ -31,13 +137,20 @@ const Hero = memo(() => {
           <motion.div variants={ANIMATION_VARIANTS.slideUp} className="flex-1 max-w-3xl space-y-8">
           <motion.h1
             variants={ANIMATION_VARIANTS.slideUp}
+            id="hero-title"
             className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05]"
           >
             <span className="block bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl">{SITE_CONFIG.name}</span>
-            <span className="mt-4 block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 font-extrabold text-3xl md:text-4xl lg:text-5xl">
+            <span className="mt-4 block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 font-extrabold text-3xl md:text-4xl lg:text-5xl">
               Crafting Scalable Digital Experiences
             </span>
           </motion.h1>
+
+          <motion.div variants={ANIMATION_VARIANTS.slideUp} className="inline-flex items-center gap-2 rounded-full border border-cyan-300/35 bg-slate-900/50 px-4 py-2 font-mono text-sm text-cyan-200 shadow-card backdrop-blur-xl">
+            <span className="h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_14px_rgba(34,211,238,0.95)]" aria-hidden="true" />
+            <span>{typedRole || roles[0]}</span>
+            <span className="animate-pulse text-cyan-100" aria-hidden="true">|</span>
+          </motion.div>
 
           <motion.p
             variants={ANIMATION_VARIANTS.slideUp}
@@ -59,7 +172,7 @@ const Hero = memo(() => {
           >
             <a
               href="#contact"
-              className="group relative inline-flex items-center gap-3 px-8 py-4 text-lg font-bold rounded-xl bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 text-white shadow-glow-lg hover:shadow-glow transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden"
+              className="magnetic-button group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 px-8 py-4 text-lg font-bold text-white shadow-glow-lg transition-all duration-300 hover:scale-105 hover:shadow-glow active:scale-95"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative z-10 flex items-center gap-3">
@@ -71,7 +184,7 @@ const Hero = memo(() => {
             </a>
             <a
               href="#projects"
-              className="inline-flex items-center gap-3 px-8 py-4 text-lg font-bold rounded-xl bg-white/10 backdrop-blur-md text-white shadow-premium ring-1 ring-white/20 hover:bg-white/20 hover:ring-white/30 hover:scale-105 active:scale-95 transition-all duration-300"
+              className="magnetic-button inline-flex items-center gap-3 rounded-xl bg-white/10 px-8 py-4 text-lg font-bold text-white shadow-premium ring-1 ring-white/20 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-white/20 hover:ring-white/30 active:scale-95"
             >
               <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-glow" />
               View Projects
@@ -84,7 +197,18 @@ const Hero = memo(() => {
             className="flex-1 flex items-center justify-center lg:justify-end"
           >
             <div className="relative group">
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-blue-500/50 via-cyan-500/30 to-blue-600/50 blur-2xl animate-glow" />
+              <motion.div
+                aria-hidden="true"
+                className="absolute -inset-10 rounded-full bg-gradient-to-tr from-blue-500/50 via-cyan-300/35 to-blue-600/50 blur-3xl"
+                animate={{ rotate: [0, 360], scale: [0.95, 1.08, 0.95] }}
+                transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+              />
+              <motion.div
+                aria-hidden="true"
+                className="absolute -inset-4 rounded-full border border-cyan-300/45"
+                animate={{ rotate: [360, 0] }}
+                transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
+              />
             <motion.img
               src="/profilep.jpg"
               alt={SITE_CONFIG.name + ' profile'}
@@ -92,6 +216,7 @@ const Hero = memo(() => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+              whileHover={{ scale: 1.03, rotate: -1.5 }}
             />
             </div>
           </motion.div>
