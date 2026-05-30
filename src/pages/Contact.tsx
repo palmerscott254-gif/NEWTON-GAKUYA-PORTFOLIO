@@ -141,18 +141,23 @@ export default function Contact() {
 
               <div className="glass-card p-8">
                 <h3 className="text-2xl font-black mb-6 text-cyan-400">Connect on Social Media</h3>
-                <div className="flex gap-6">
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                   {SOCIAL_LINKS.map((social) => (
                     <a
                       key={social.name}
                       href={social.url}
                       target={social.url.startsWith('http') ? '_blank' : undefined}
                       rel={social.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="text-4xl hover:scale-125 transition-all duration-300 hover:text-cyan-400"
+                      className="group flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/40 hover:bg-cyan-400/10 hover:shadow-[0_0_28px_rgba(0,191,255,0.18)]"
                       aria-label={social.ariaLabel}
                       title={social.name}
                     >
-                      {social.icon}
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/15 bg-cyan-400/10 text-cyan-300 shadow-[0_0_22px_rgba(0,191,255,0.12)] transition-all duration-300 group-hover:scale-105 group-hover:border-cyan-300/30 group-hover:text-cyan-200 group-hover:shadow-[0_0_28px_rgba(0,191,255,0.28)]">
+                        {social.icon}
+                      </span>
+                      <span className="text-sm font-semibold text-slate-100 transition-colors duration-300 group-hover:text-white">
+                        {social.name}
+                      </span>
                     </a>
                   ))}
                 </div>

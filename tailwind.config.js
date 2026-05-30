@@ -10,14 +10,14 @@ export default {
           200: '#bfdbfe',
           300: '#93c5fd',
           400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          DEFAULT: '#3b82f6',
-          light: '#60a5fa',
-          dark: '#1d4ed8'
+          500: '#00bfff',
+          600: '#009fe0',
+          700: '#0477b5',
+          800: '#095f91',
+          900: '#0b4c72',
+          DEFAULT: '#00bfff',
+          light: '#33d2ff',
+          dark: '#0477b5'
         },
         secondary: {
           DEFAULT: '#8b5cf6',
@@ -53,8 +53,8 @@ export default {
         xl: '24px'
       },
       fontFamily: {
-        sans: ['Space Grotesk', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'Poppins', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        display: ['Inter', 'Poppins', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
       },
       animation: {
@@ -83,8 +83,8 @@ export default {
           '100%': { transform: 'scale(1)', opacity: '1' }
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3)' },
-          '100%': { boxShadow: '0 0 30px rgba(59, 130, 246, 0.8), 0 0 60px rgba(59, 130, 246, 0.5)' }
+          '0%': { boxShadow: '0 0 20px rgba(0, 191, 255, 0.45), 0 0 40px rgba(37, 99, 235, 0.22)' },
+          '100%': { boxShadow: '0 0 30px rgba(0, 191, 255, 0.82), 0 0 60px rgba(37, 99, 235, 0.48)' }
         },
         shimmer: {
           '0%': { backgroundPosition: '-200% 0' },
@@ -95,8 +95,8 @@ export default {
         xs: '2px'
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(59, 130, 246, 0.5)',
-        'glow-lg': '0 0 40px rgba(59, 130, 246, 0.6)',
+        'glow': '0 0 20px rgba(0, 191, 255, 0.5)',
+        'glow-lg': '0 0 40px rgba(0, 191, 255, 0.6)',
         'premium': '0 20px 60px -15px rgba(0, 0, 0, 0.5)',
         'card': '0 8px 32px rgba(0, 0, 0, 0.4)'
       }
