@@ -37,10 +37,10 @@ export default function Home() {
           variants={ANIMATION_VARIANTS.fadeIn}
         >
           <motion.div variants={ANIMATION_VARIANTS.slideUp} className="mb-12">
-            <p className="text-xs uppercase tracking-[0.35em] text-cyan-300/80">Projects Command Center</p>
-            <h1 className="mt-3 text-4xl font-black md:text-5xl">Engineering work, scanned live.</h1>
+            <p className="text-xs uppercase tracking-[0.35em] text-cyan-300/80">Projects</p>
+            <h1 className="mt-3 text-4xl font-black md:text-5xl">Selected products, platforms, and systems.</h1>
             <p className="mt-4 max-w-3xl text-lg text-slate-300">
-              Each project is presented as an interactive system card so visitors can understand the purpose, architecture, technologies, live status, and quality of the build without relying on large screenshots.
+              A premium showcase of the work behind each build, with clear storytelling, immediate previews, and a stronger focus on outcomes than decoration.
             </p>
           </motion.div>
           <ProjectsGrid />
