@@ -59,7 +59,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <div className="mt-12 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+        <div className="mt-12">
           <motion.div variants={itemVariants} className="glass-card p-8 md:p-10">
             <div className="flex items-center justify-between gap-4">
               <h2 className="text-2xl font-black text-white md:text-3xl">Current Mission</h2>
@@ -70,18 +70,6 @@ export default function About() {
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-200 md:text-xl">
               {CURRENT_MISSION}
             </p>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="glass-card p-8 md:p-10">
-            <h2 className="text-2xl font-black text-white md:text-3xl">Why this portfolio works</h2>
-            <div className="mt-6 space-y-4 text-slate-300">
-              <p>
-                The visual language leans into glassmorphism, glow, and restrained motion to feel premium on both desktop and mobile.
-              </p>
-              <p>
-                The content hierarchy is structured around strategy, execution, and the ability to turn business problems into usable digital products.
-              </p>
-            </div>
           </motion.div>
         </div>
 
@@ -116,7 +104,7 @@ export default function About() {
           ))}
         </motion.div>
 
-        <div className="mt-10 grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-10">
           <motion.div variants={itemVariants} className="glass-card p-8 md:p-10">
             <h2 className="text-2xl font-black text-white md:text-3xl">Tech Stack</h2>
             <p className="mt-4 max-w-lg text-slate-300">
@@ -134,20 +122,6 @@ export default function About() {
                   {tech.name}
                 </span>
               ))}
-            </div>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="glass-card p-8 md:p-10">
-            <h2 className="text-2xl font-black text-white md:text-3xl">Working style</h2>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-sm uppercase tracking-[0.28em] text-cyan-200/80">Approach</p>
-                <p className="mt-2 text-base font-semibold text-white">Calm, strategic, and detail-oriented.</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-sm uppercase tracking-[0.28em] text-cyan-200/80">Delivery</p>
-                <p className="mt-2 text-base font-semibold text-white">Built for clarity, performance, and polish.</p>
-              </div>
             </div>
           </motion.div>
         </div>

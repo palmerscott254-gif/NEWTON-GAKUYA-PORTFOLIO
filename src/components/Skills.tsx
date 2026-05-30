@@ -37,15 +37,7 @@ const skillCategories: SkillCategory[] = [
       { name: 'Photoshop', icon: <PhotoshopIcon /> }
     ]
   },
-  {
-    title: 'Soft Skills',
-    skills: [
-      { name: 'Leadership' },
-      { name: 'Communication' },
-      { name: 'Teamwork' },
-      { name: 'Strategic Thinking' }
-    ]
-  }
+  
 ];
 
 const radarNodes = [
