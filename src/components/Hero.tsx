@@ -79,42 +79,44 @@ const Hero = memo(() => {
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video
-          className="absolute left-1/2 top-1/2 h-auto min-h-full min-w-full w-auto -translate-x-1/2 -translate-y-1/2 object-cover scale-110"
+          className="absolute left-1/2 top-1/2 h-auto min-h-full min-w-full w-auto -translate-x-1/2 -translate-y-1/2 object-cover scale-100"
           autoPlay
           loop
           muted
           playsInline
+          style={{ filter: 'contrast(1.04) brightness(1.02) saturate(1.05)' }}
         >
           <source src="/background video.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_15%_10%,rgba(34,211,238,0.22),transparent_55%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_85%_10%,rgba(59,130,246,0.22),transparent_55%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/75 via-slate-950/70 to-black/90" />
+        <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_15%_10%,rgba(34,211,238,0.12),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_85%_10%,rgba(59,130,246,0.12),transparent_55%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/55 via-slate-950/45 to-black/70" />
 
         <motion.div
           className="pointer-events-none absolute inset-0"
           style={{
-            background: 'radial-gradient(360px circle at var(--mx) var(--my), rgba(56,189,248,0.25), transparent 65%)',
+            background: 'radial-gradient(360px circle at var(--mx) var(--my), rgba(56,189,248,0.18), transparent 65%)',
             '--mx': glowX,
             '--my': glowY
           } as CSSProperties}
         />
 
-        {particles.map((particle) => (
+        {particles.slice(0, 10).map((particle) => (
           <motion.span
             key={particle.id}
-            className="absolute rounded-full bg-cyan-200/60"
+            className="absolute rounded-full bg-cyan-200/40"
             style={{
               left: particle.left,
               top: particle.top,
               width: particle.size,
-              height: particle.size
+              height: particle.size,
+              opacity: 0.6
             }}
             animate={{
-              y: [0, -22, 0],
-              opacity: [0.2, 0.95, 0.2],
-              scale: [1, 1.25, 1]
+              y: [0, -12, 0],
+              opacity: [0.15, 0.6, 0.15],
+              scale: [1, 1.12, 1]
             }}
             transition={{
               duration: particle.duration,
