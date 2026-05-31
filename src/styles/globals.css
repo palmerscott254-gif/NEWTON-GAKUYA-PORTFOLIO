@@ -152,13 +152,41 @@ body {
 
 /* Profile Frame */
 .profile-frame {
-  @apply relative isolate inline-flex aspect-square w-[clamp(16rem,48vw,24rem)] rounded-full;
-  padding: clamp(0.7rem, 1.15vw, 1rem);
+  @apply relative isolate inline-flex flex-col items-center;
+  width: clamp(16rem, 48vw, 24rem);
   transform: translateZ(0);
   transform-origin: center;
+  contain: layout paint style;
+}
+
+.profile-frame__visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: clamp(0.7rem, 1.15vw, 1rem);
+  border-radius: 9999px;
   animation: profile-breathe 5.6s ease-in-out infinite;
   will-change: transform;
-  contain: layout paint style;
+}
+
+.profile-frame__name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 1rem;
+  min-height: 1.5rem;
+  font-family: inherit;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(224, 242, 254, 0.94);
+  text-shadow: 0 0 18px rgba(34, 211, 238, 0.24);
+}
+
+.profile-frame__caret {
+  color: rgba(103, 232, 249, 0.95);
+  animation: profile-caret-blink 1s steps(1, end) infinite;
 }
 
 .profile-orbit__glow {
@@ -303,6 +331,18 @@ body {
 
   50% {
     transform: scale(1.03);
+  }
+}
+
+@keyframes profile-caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
   }
 }
 

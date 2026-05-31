@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { memo, useState, useEffect } from 'react';
+import { memo, useState, useEffect, type MouseEvent } from 'react';
 import { NAV_LINKS } from '@lib/constants';
 import { useScrollPosition } from '@lib/hooks';
+import { scrollToElement } from '@lib/utils';
 
 const Header = memo(() => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,6 +22,15 @@ const Header = memo(() => {
 
   const navLinkClass = `group relative py-2 px-1 font-semibold text-slate-300 hover:text-white transition-colors`;
 
+  const handleNavClick = (path: string) => (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    const targetId = path.startsWith('#') ? path.slice(1) : path;
+    scrollToElement(targetId);
+    window.history.pushState(null, '', path);
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header
       className={`sticky top-0 z-50 backdrop-blur-md transition-all duration-300 ${
@@ -32,6 +42,7 @@ const Header = memo(() => {
       <div className="container flex h-16 md:h-20 items-center justify-between">
         <a
           href="#hero"
+          onClick={handleNavClick('#hero')}
           className="font-extrabold tracking-tight text-xl md:text-2xl bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent hover:from-blue-300 hover:to-cyan-300 transition-all"
         >
           NG
@@ -40,7 +51,7 @@ const Header = memo(() => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
           {NAV_LINKS.map((link) => (
-            <a key={link.path} href={link.path} className={`${navLinkClass}`}>
+            <a key={link.path} href={link.path} onClick={handleNavClick(link.path)} className={`${navLinkClass}`}>
               <span className="relative">
                 {link.label}
                 <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 group-hover:w-full" />
@@ -51,6 +62,7 @@ const Header = memo(() => {
 
         {/* Mobile Menu Button */}
         <button
+          type="button"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
           aria-label="Toggle menu"
@@ -96,7 +108,7 @@ const Header = memo(() => {
                 <a
                   key={link.path}
                   href={link.path}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={handleNavClick(link.path)}
                   className={`py-3 px-4 rounded-lg transition-all text-slate-300 hover:bg-white/5 hover:text-white`}
                 >
                   {link.label}

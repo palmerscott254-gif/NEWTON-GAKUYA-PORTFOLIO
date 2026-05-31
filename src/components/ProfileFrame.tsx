@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 type ProfileFrameProps = {
   imageSrc: string;
@@ -6,26 +6,74 @@ type ProfileFrameProps = {
   className?: string;
 };
 
+function useTypingLoop(text: string) {
+  const [visibleText, setVisibleText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    if (!text) {
+      return;
+    }
+
+    const typingDelay = isDeleting ? 55 : 95;
+
+    const timer = window.setTimeout(() => {
+      if (isDeleting) {
+        const nextText = text.slice(0, Math.max(visibleText.length - 1, 0));
+        setVisibleText(nextText);
+
+        if (!nextText.length) {
+          setIsDeleting(false);
+        }
+
+        return;
+      }
+
+      const nextText = text.slice(0, visibleText.length + 1);
+      setVisibleText(nextText);
+
+      if (nextText === text) {
+        window.setTimeout(() => setIsDeleting(true), 1000);
+      }
+    }, typingDelay);
+
+    return () => window.clearTimeout(timer);
+  }, [isDeleting, text, visibleText]);
+
+  return visibleText;
+}
+
 const ProfileFrame = memo(({ imageSrc, name, className = '' }: ProfileFrameProps) => {
+  const typedName = useTypingLoop(name);
+
   return (
     <div className={`profile-frame ${className}`.trim()} aria-label={`${name} profile portrait`}>
-      <div className="profile-orbit__glow" aria-hidden="true" />
-      <div className="profile-orbit__ring" aria-hidden="true" />
-      <div className="profile-orbit__arc profile-orbit__arc--lower" aria-hidden="true" />
-      <div className="profile-orbit__particle-path" aria-hidden="true">
-        <span className="profile-orbit__particle" />
+      <div className="profile-frame__visual">
+        <div className="profile-orbit__glow" aria-hidden="true" />
+        <div className="profile-orbit__ring" aria-hidden="true" />
+        <div className="profile-orbit__arc profile-orbit__arc--lower" aria-hidden="true" />
+        <div className="profile-orbit__particle-path" aria-hidden="true">
+          <span className="profile-orbit__particle" />
+        </div>
+        <div className="profile-orbit__image-shell" aria-hidden="true">
+          <img
+            src={imageSrc}
+            alt={`${name} profile`}
+            className="profile-orbit__image"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </div>
+        <div className="profile-orbit__arc profile-orbit__arc--upper" aria-hidden="true" />
       </div>
-      <div className="profile-orbit__image-shell" aria-hidden="true">
-        <img
-          src={imageSrc}
-          alt={`${name} profile`}
-          className="profile-orbit__image"
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-        />
-      </div>
-      <div className="profile-orbit__arc profile-orbit__arc--upper" aria-hidden="true" />
+
+      <p className="profile-frame__name" aria-live="polite">
+        <span>{typedName || '\u00a0'}</span>
+        <span className="profile-frame__caret" aria-hidden="true">
+          |
+        </span>
+      </p>
     </div>
   );
 });
