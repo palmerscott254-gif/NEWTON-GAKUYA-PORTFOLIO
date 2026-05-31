@@ -15,26 +15,25 @@ function useTypingLoop(text: string) {
       return;
     }
 
-    const typingDelay = isDeleting ? 55 : 95;
+    if (visibleText === text && !isDeleting) {
+      const holdTimer = window.setTimeout(() => setIsDeleting(true), 2000);
+      return () => window.clearTimeout(holdTimer);
+    }
+
+    if (!visibleText.length && isDeleting) {
+      const holdTimer = window.setTimeout(() => setIsDeleting(false), 1000);
+      return () => window.clearTimeout(holdTimer);
+    }
+
+    const typingDelay = isDeleting ? 48 : 88;
 
     const timer = window.setTimeout(() => {
       if (isDeleting) {
-        const nextText = text.slice(0, Math.max(visibleText.length - 1, 0));
-        setVisibleText(nextText);
-
-        if (!nextText.length) {
-          setIsDeleting(false);
-        }
-
+        setVisibleText(text.slice(0, Math.max(visibleText.length - 1, 0)));
         return;
       }
 
-      const nextText = text.slice(0, visibleText.length + 1);
-      setVisibleText(nextText);
-
-      if (nextText === text) {
-        window.setTimeout(() => setIsDeleting(true), 1000);
-      }
+      setVisibleText(text.slice(0, visibleText.length + 1));
     }, typingDelay);
 
     return () => window.clearTimeout(timer);

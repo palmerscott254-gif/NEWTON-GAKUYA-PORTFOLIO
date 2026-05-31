@@ -143,8 +143,7 @@ const Hero = memo(() => {
             id="hero-title"
             className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05]"
           >
-            <span className="block bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl">{SITE_CONFIG.name}</span>
-            <span className="mt-4 block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 font-extrabold text-3xl md:text-4xl lg:text-5xl">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 font-extrabold text-3xl md:text-4xl lg:text-5xl">
               Crafting Scalable Digital Experiences
             </span>
           </motion.h1>

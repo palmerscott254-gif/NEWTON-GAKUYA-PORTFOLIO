@@ -175,6 +175,9 @@ body {
   gap: 0.25rem;
   margin-top: 1rem;
   min-height: 1.5rem;
+  min-width: 14ch;
+  justify-content: center;
+  white-space: nowrap;
   font-family: inherit;
   font-size: clamp(1rem, 2.2vw, 1.2rem);
   font-weight: 800;
