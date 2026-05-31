@@ -11,7 +11,8 @@ const ProfileFrame = memo(({ imageSrc, name, className = '' }: ProfileFrameProps
     <div className={`profile-frame ${className}`.trim()} aria-label={`${name} profile portrait`}>
       <div className="profile-orbit__glow" aria-hidden="true" />
       <div className="profile-orbit__ring" aria-hidden="true" />
-      <div className="profile-orbit__particle-layer" aria-hidden="true">
+      <div className="profile-orbit__arc profile-orbit__arc--lower" aria-hidden="true" />
+      <div className="profile-orbit__particle-path" aria-hidden="true">
         <span className="profile-orbit__particle" />
       </div>
       <div className="profile-orbit__image-shell" aria-hidden="true">
@@ -24,6 +25,7 @@ const ProfileFrame = memo(({ imageSrc, name, className = '' }: ProfileFrameProps
           fetchPriority="high"
         />
       </div>
+      <div className="profile-orbit__arc profile-orbit__arc--upper" aria-hidden="true" />
     </div>
   );
 });
