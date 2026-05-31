@@ -152,9 +152,156 @@ body {
 
 /* Profile Frame */
 .profile-frame {
-  @apply relative inline-flex p-3 rounded-full;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 60%);
-  box-shadow: 0 20px 50px -15px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.1);
+  @apply relative isolate inline-flex aspect-square w-[clamp(16rem,48vw,24rem)] rounded-full;
+  padding: clamp(0.7rem, 1.15vw, 1rem);
+  transform: translateZ(0);
+  transform-origin: center;
+  animation: profile-breathe 5.2s ease-in-out infinite;
+  will-change: transform;
+  contain: layout paint style;
+}
+
+.profile-orbit__glow {
+  position: absolute;
+  inset: -18px;
+  z-index: 0;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 50% 42%, rgba(56, 189, 248, 0.22), rgba(37, 99, 235, 0.12) 36%, transparent 70%);
+  filter: blur(22px);
+  opacity: 0.85;
+  pointer-events: none;
+  transition: opacity 320ms ease, filter 320ms ease, transform 320ms ease;
+}
+
+.profile-orbit__ring {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    inset 0 -20px 40px rgba(3, 7, 18, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 16px 40px rgba(2, 8, 23, 0.28),
+    0 0 28px rgba(34, 211, 238, 0.12);
+  transition: background 320ms ease, border-color 320ms ease, box-shadow 320ms ease, -webkit-backdrop-filter 320ms ease, backdrop-filter 320ms ease;
+}
+
+.profile-orbit__particle-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  animation: profile-orbit 9s linear infinite;
+  will-change: transform;
+}
+
+.profile-orbit__particle {
+  position: absolute;
+  left: 50%;
+  top: 2.5%;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 35% 35%, rgba(236, 254, 255, 1) 0%, rgba(103, 232, 249, 0.98) 28%, rgba(6, 182, 212, 0.94) 58%, rgba(8, 145, 178, 0.18) 100%);
+  box-shadow:
+    0 0 12px rgba(34, 211, 238, 0.92),
+    0 0 24px rgba(34, 211, 238, 0.56),
+    0 0 38px rgba(59, 130, 246, 0.22);
+  filter: blur(0.35px);
+  opacity: 0.92;
+  transition: opacity 280ms ease, filter 280ms ease, box-shadow 280ms ease;
+}
+
+.profile-orbit__particle::after {
+  content: '';
+  position: absolute;
+  inset: -0.95rem;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.42) 0%, rgba(56, 189, 248, 0.14) 35%, transparent 74%);
+  filter: blur(8px);
+  opacity: 0.72;
+}
+
+.profile-orbit__image-shell {
+  position: absolute;
+  inset: clamp(0.45rem, 0.9vw, 0.72rem);
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 9999px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.profile-orbit__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  transform: translateZ(0);
+  transition: filter 320ms ease, transform 320ms ease;
+}
+
+@keyframes profile-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+@keyframes profile-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.profile-frame:hover .profile-orbit__glow,
+.profile-frame:active .profile-orbit__glow {
+  opacity: 1;
+  filter: blur(26px);
+  transform: scale(1.02);
+}
+
+.profile-frame:hover .profile-orbit__ring,
+.profile-frame:active .profile-orbit__ring {
+  background: rgba(255, 255, 255, 0.065);
+  border-color: rgba(125, 211, 252, 0.2);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    inset 0 -20px 40px rgba(3, 7, 18, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 18px 48px rgba(2, 8, 23, 0.32),
+    0 0 34px rgba(34, 211, 238, 0.16);
+}
+
+.profile-frame:hover .profile-orbit__particle,
+.profile-frame:active .profile-orbit__particle {
+  filter: blur(0.2px) brightness(1.15);
+  opacity: 1;
+  box-shadow:
+    0 0 14px rgba(34, 211, 238, 1),
+    0 0 28px rgba(34, 211, 238, 0.7),
+    0 0 44px rgba(59, 130, 246, 0.28);
+}
+
+.profile-frame:hover .profile-orbit__image,
+.profile-frame:active .profile-orbit__image {
+  filter: saturate(1.03) contrast(1.02);
 }
 
 @keyframes gradientShift {

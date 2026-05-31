@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ANIMATION_VARIANTS, SITE_CONFIG } from '@lib/constants';
 import { memo, useEffect, useMemo, useState, type CSSProperties, type MouseEvent } from 'react';
+import ProfileFrame from './ProfileFrame';
 
 const roles = ['Full-Stack Developer', 'Django Engineer', 'Problem Solver', 'Digital Creator'];
 
@@ -198,29 +199,7 @@ const Hero = memo(() => {
             variants={ANIMATION_VARIANTS.scaleIn}
             className="flex-1 flex items-center justify-center lg:justify-end"
           >
-            <div className="relative group">
-              <motion.div
-                aria-hidden="true"
-                className="absolute -inset-10 rounded-full bg-gradient-to-tr from-blue-500/50 via-cyan-300/35 to-blue-600/50 blur-3xl"
-                animate={{ rotate: [0, 360], scale: [0.95, 1.08, 0.95] }}
-                transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
-              />
-              <motion.div
-                aria-hidden="true"
-                className="absolute -inset-4 rounded-full border border-cyan-300/45"
-                animate={{ rotate: [360, 0] }}
-                transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
-              />
-            <motion.img
-              src="/profilep.jpg"
-              alt={SITE_CONFIG.name + ' profile'}
-              className="relative z-10 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-premium ring-4 ring-white/30 group-hover:ring-cyan-400/50 transition-all duration-500"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ type: 'spring', stiffness: 120, damping: 20 }}
-              whileHover={{ scale: 1.03, rotate: -1.5 }}
-            />
-            </div>
+            <ProfileFrame imageSrc="/profilep.jpg" name={SITE_CONFIG.name} />
           </motion.div>
         </motion.div>
       </div>
