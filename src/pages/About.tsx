@@ -52,13 +52,15 @@ export default function About() {
             About {SITE_CONFIG.name}
           </div>
           <h1 className="section-heading max-w-4xl">
-            Business-first engineering with a premium product mindset.
+            Accountant,Web Developer,Tech Enthusiast,Graphic Designer,Salesman and a Marketer.
           </h1>
           <p className="section-subheading mt-6 max-w-3xl">
-            A modern developer portfolio built around clean systems, sharp visuals, and thoughtful product strategy. I combine commerce knowledge with design-sensitive engineering to build work that feels durable and deliberate.
+            A self learnt full stack web developer with a passion for crafting seamless digital experiences. With a background in accounting and sales, I bring a unique blend of analytical thinking and creativity to my work. I thrive on solving complex problems and am dedicated to continuous learning in the ever-evolving world of technology.
           </p>
         </motion.div>
 
+            <div className="flex items-center justify-between gap-4">
+              <h2 className="text-2xl font-black text-white md:text-3xl">Current Mission</h2>
         <div className="mt-12">
           <motion.div variants={itemVariants} className="glass-card p-8 md:p-10">
             <div className="flex items-center justify-between gap-4">
