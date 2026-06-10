@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://newtongakuya.netlify.app/sitemap.xml
+Sitemap: https://newton-gakuya-portfolio.vercel.app/sitemap.xml
 
 # Disallow admin areas
 Disallow: /admin/
